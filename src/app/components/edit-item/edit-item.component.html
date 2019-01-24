@@ -15,7 +15,7 @@
             type="password"
             id="password"
             placeholder="Введите пароль"
-            required
+            formControlName="password"
         >
     </div>
     <div class="form-group" fxLayout="row">
@@ -24,12 +24,13 @@
             type="text"
             id="name"
             placeholder="Введите имя"
-            required
+            formControlName="name"
         >
     </div>
     <div class="form-group" fxLayout="row">
-        <button
+        <button 
             type="submit" 
+            [disabled]="form.invalid"
         >Ок
         </button>
         <button

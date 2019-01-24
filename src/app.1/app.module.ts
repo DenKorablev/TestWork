@@ -6,8 +6,6 @@ import { LeftSidebarComponent } from './components/left-sidebar/left-sidebar.com
 import { ItemContainerComponent } from './components/item-container/item-container.component';
 import { EditItemComponent } from './components/edit-item/edit-item.component';
 import { FlexLayoutModule } from '@angular/flex-layout';
-import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { CommonModule } from '@angular/common';
 
 @NgModule({
   declarations: [
@@ -17,12 +15,8 @@ import { CommonModule } from '@angular/common';
     EditItemComponent    
   ],
   imports: [
-    CommonModule,
     BrowserModule,
-    FormsModule,
-    ReactiveFormsModule,
-    FlexLayoutModule,
-
+    FlexLayoutModule
   ],
   providers: [],
   bootstrap: [AppComponent]

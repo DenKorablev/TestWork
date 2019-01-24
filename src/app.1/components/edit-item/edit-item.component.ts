@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { FormGroup, FormControl, Validators } from '@angular/forms';
 
 @Component({
   selector: 'zds-edit-item',
@@ -8,18 +7,9 @@ import { FormGroup, FormControl, Validators } from '@angular/forms';
 })
 export class EditItemComponent implements OnInit {
 
-  form: FormGroup;
-
   constructor() { }
 
   ngOnInit() {
-    this.form = new FormGroup({
-      'email': new FormControl(null, [Validators.required, Validators.email])
-    });
-
   }
 
-  onSubmit() {
-
-  }
 }

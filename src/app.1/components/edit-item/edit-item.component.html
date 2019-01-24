@@ -1,40 +1,43 @@
-<form [formGroup]="form" (ngSubmit)="onSubmit()">
-    <p class="text-title">Добавление нового товара</p>
-    <div class="form-group" fxLayout="row" >
+<p class="text-xs-center">Регистрация для получения доступа</p>
+<form>
+    <div 
+        class="form-group"
+    >
         <label for="email">Email</label>
         <input
             type="text"
+            class="form-control underlined"
             id="email"
             placeholder="Введите email"
-            formControlName="email"
         >
     </div>
-    <div class="form-group" fxLayout="row">
+    <div 
+        class="form-group"
+    >
         <label for="password">Пароль</label>
         <input
             type="password"
+            class="form-control underlined"
             id="password"
             placeholder="Введите пароль"
-            required
         >
     </div>
-    <div class="form-group" fxLayout="row">
+    <div 
+        class="form-group"
+    >
         <label for="name">Имя</label>
         <input
             type="text"
+            class="form-control underlined"
             id="name"
             placeholder="Введите имя"
-            required
         >
     </div>
-    <div class="form-group" fxLayout="row">
-        <button
+    <div class="form-group">
+        <button 
             type="submit" 
-        >Ок
-        </button>
-        <button
-        type="submit" 
-        >Отмена
-        </button>
+            class="btn btn-block btn-primary"
+            [disabled]="form.invalid"
+        >Зарегистрироваться</button>
     </div>
 </form>

@@ -11,7 +11,7 @@
             >
             <span 
                 class="error-message"
-                *ngIf="form.get('name').invalid && form.get('name').touched"
+                *ngIf="isControlInvalid('name')"
             >
                 <span class="error-message-text" *ngIf="form.get('name')['errors']['required']">* Поле наименования должно быть заполнено</span>
             </span>
@@ -29,7 +29,7 @@
             >
             <span 
                 class="error-message"
-                *ngIf="form.get('price').invalid && form.get('price').touched"
+                *ngIf="isControlInvalid('price')"
             >
                 <span class="error-message-text" *ngIf="form.get('price')['errors']['required']">* Поле цена должно быть заполнено</span>
                 <span class="error-message-text" *ngIf="form.get('price')['errors']['min']">* Поле цена не может быть отрицательным</span>
@@ -47,7 +47,7 @@
             >
             <span 
                 class="error-message"
-                *ngIf="form.get('description').invalid && form.get('description').touched"
+                *ngIf="isControlInvalid('description')"
             >
                 <span class="error-message-text" *ngIf="form.get('description')['errors']['required']">* Поле описание должно быть заполнено</span>
             </span>
@@ -57,11 +57,14 @@
         <button 
             type="submit" 
             [disabled]="form.invalid"
-        >Ок
+        >
+            Ок
         </button>
         <button
-        type="submit" 
-        >Отмена
+            type="submit"
+            (click)="clearForm()" 
+        >
+            Отмена
         </button>
     </div>
 </form>

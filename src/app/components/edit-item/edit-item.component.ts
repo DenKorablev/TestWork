@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
+import { formArrayNameProvider } from '@angular/forms/src/directives/reactive_directives/form_group_name';
 
 @Component({
   selector: 'zds-edit-item',
@@ -21,7 +22,17 @@ export class EditItemComponent implements OnInit {
 
   }
 
+  isControlInvalid(controlName: string): boolean {
+    const control = this.form.controls[controlName];
+    const result = control.invalid && control.touched;
+    return result;
+  }
+
   onSubmit() {
     console.log(this.form);
+  }
+
+  clearForm() {
+    this.form.reset();
   }
 }

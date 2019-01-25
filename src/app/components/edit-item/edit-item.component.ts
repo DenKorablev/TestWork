@@ -37,7 +37,7 @@ export class EditItemComponent implements OnInit {
         this.form.reset();
       });
   }
-
+  
   clearForm() {
     this.form.reset();
   }

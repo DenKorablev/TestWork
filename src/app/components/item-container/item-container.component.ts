@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Item } from '../../models/item.model';
+import { ItemService } from '../../services/item.service';
 
 @Component({
   selector: 'zds-item-container',
@@ -7,9 +9,22 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ItemContainerComponent implements OnInit {
 
-  constructor() { }
+  items: Item[] = [];
+
+  constructor(
+    private itemService: ItemService
+    ) { }
 
   ngOnInit() {
+    this.itemService.getItem()
+      .subscribe((items: Item[]) => {
+        this.items = items;
+      });
   }
 
+  deleteItem(item: Item) {
+    this.itemService.removeItem(item)
+      .subscribe(()=> {
+      });
+  }
 }

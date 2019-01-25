@@ -1,3 +1,15 @@
-<p>
-  item-container works!
-</p>
+<div class="panel-toolbar">
+  <a class="add-item">Добавить товар</a>
+</div>
+<div fxLayout="row" class="item-container">
+  <div *ngFor="let item of items" class="product-item">
+    <span class="edit"></span>
+    <span class="delete" (click)="deleteItem(item)"></span>
+    <img [src]="item.photo">
+    <div class="product-list">
+      <h3>{{item.name}}</h3>
+        <span class="price">₽ {{item.price}}</span>
+        <span class="count">В наличие: {{item.count}} шт.</span>
+    </div>
+  </div>
+</div>

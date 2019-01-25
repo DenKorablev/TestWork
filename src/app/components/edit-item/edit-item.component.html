@@ -1,31 +1,57 @@
 <form [formGroup]="form" (ngSubmit)="onSubmit()">
     <p class="text-title">Добавление нового товара</p>
-    <div class="form-group" fxLayout="row" >
-        <label for="email">Email</label>
-        <input
-            type="text"
-            id="email"
-            placeholder="Введите email"
-            formControlName="email"
-        >
+    <div class="form-group" fxLayout="row">
+        <label for="name">Наименование</label>
+        <div fxLayout="column">
+            <input
+                type="text"
+                id="name"
+                placeholder="Введите название"
+                formControlName="name"
+            >
+            <span 
+                class="error-message"
+                *ngIf="form.get('name').invalid && form.get('name').touched"
+            >
+                <span class="error-message-text" *ngIf="form.get('name')['errors']['required']">* Поле наименования должно быть заполнено</span>
+            </span>
+        </div>
     </div>
     <div class="form-group" fxLayout="row">
-        <label for="password">Пароль</label>
-        <input
-            type="password"
-            id="password"
-            placeholder="Введите пароль"
-            formControlName="password"
-        >
+        <label for="price">Цена</label>
+        <div fxLayout="column">
+            <input
+                type="number"
+                id="price"
+                placeholder="Введите цену"
+                formControlName="price"
+                min=1
+            >
+            <span 
+                class="error-message"
+                *ngIf="form.get('price').invalid && form.get('price').touched"
+            >
+                <span class="error-message-text" *ngIf="form.get('price')['errors']['required']">* Поле цена должно быть заполнено</span>
+                <span class="error-message-text" *ngIf="form.get('price')['errors']['min']">* Поле цена не может быть отрицательным</span>
+            </span>
+        </div>
     </div>
     <div class="form-group" fxLayout="row">
-        <label for="name">Имя</label>
-        <input
-            type="text"
-            id="name"
-            placeholder="Введите имя"
-            formControlName="name"
-        >
+        <label for="description">Описание</label>
+        <div fxLayout="column">
+            <input
+                type="text"
+                id="description"
+                placeholder="Введите описание"
+                formControlName="description"
+            >
+            <span 
+                class="error-message"
+                *ngIf="form.get('description').invalid && form.get('description').touched"
+            >
+                <span class="error-message-text" *ngIf="form.get('description')['errors']['required']">* Поле описание должно быть заполнено</span>
+            </span>
+        </div>
     </div>
     <div class="form-group" fxLayout="row">
         <button 

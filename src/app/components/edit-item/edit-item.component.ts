@@ -14,9 +14,9 @@ export class EditItemComponent implements OnInit {
 
   ngOnInit() {
     this.form = new FormGroup({
-      'email': new FormControl(null, [Validators.required, Validators.email]),
-      'password': new FormControl(null, [Validators.required]),
-      'name': new FormControl(null, [Validators.required])
+      'name': new FormControl(null, [Validators.required]),
+      'price': new FormControl(null, [Validators.required, Validators.min(0)]),
+      'description': new FormControl(null, [Validators.required])
     });
 
   }

@@ -4,6 +4,7 @@
         <label for="name">Наименование</label>
         <div fxLayout="column">
             <input
+                [class.danger]="isControlInvalid('name')"              
                 type="text"
                 id="name"
                 placeholder="Введите название"
@@ -21,6 +22,7 @@
         <label for="price">Цена</label>
         <div fxLayout="column">
             <input
+                [class.danger]="isControlInvalid('price')"
                 type="number"
                 id="price"
                 placeholder="Введите цену"
@@ -40,6 +42,7 @@
         <label for="description">Описание</label>
         <div fxLayout="column">
             <input
+                [class.danger]="isControlInvalid('description')"
                 type="text"
                 id="description"
                 placeholder="Введите описание"

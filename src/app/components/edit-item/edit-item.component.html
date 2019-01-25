@@ -1,6 +1,16 @@
 <form [formGroup]="form" (ngSubmit)="onSubmit()">
     <p class="text-title">Добавление нового товара</p>
     <div class="form-group" fxLayout="row">
+        <label for="photo">Фото</label>
+        <div fxLayout="column">
+            <input            
+                type="file"
+                id="photo"
+                formControlName="photo"
+            >
+        </div>
+    </div>
+    <div class="form-group" fxLayout="row">
         <label for="name">Наименование</label>
         <div fxLayout="column">
             <input
@@ -33,26 +43,43 @@
                 class="error-message"
                 *ngIf="isControlInvalid('price')"
             >
-                <span class="error-message-text" *ngIf="form.get('price')['errors']['required']">* Поле цена должно быть заполнено</span>
-                <span class="error-message-text" *ngIf="form.get('price')['errors']['min']">* Поле цена не может быть отрицательным</span>
+                <span 
+                    class="error-message-text" 
+                    *ngIf="form.get('price')['errors']['required']">
+                        * Поле цена должно быть заполнено
+                </span>
+                <span 
+                    class="error-message-text" 
+                    *ngIf="form.get('price')['errors']['min']">
+                        * Поле цена не может быть отрицательным
+                </span>
             </span>
         </div>
     </div>
     <div class="form-group" fxLayout="row">
-        <label for="description">Описание</label>
+        <label for="count">Количество</label>
         <div fxLayout="column">
             <input
-                [class.danger]="isControlInvalid('description')"
-                type="text"
-                id="description"
-                placeholder="Введите описание"
-                formControlName="description"
+                [class.danger]="isControlInvalid('count')"
+                type="number"
+                id="count"
+                placeholder="Введите количество"
+                formControlName="count"
             >
             <span 
                 class="error-message"
-                *ngIf="isControlInvalid('description')"
+                *ngIf="isControlInvalid('count')"
             >
-                <span class="error-message-text" *ngIf="form.get('description')['errors']['required']">* Поле описание должно быть заполнено</span>
+                <span 
+                    class="error-message-text" 
+                    *ngIf="form.get('count')['errors']['required']">
+                        * Поле количество должно быть заполнено
+                </span>
+                <span 
+                    class="error-message-text" 
+                    *ngIf="form.get('count')['errors']['min']">
+                        * Поле количество не может быть отрицательным
+                </span>
             </span>
         </div>
     </div>

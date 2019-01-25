@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
-import { formArrayNameProvider } from '@angular/forms/src/directives/reactive_directives/form_group_name';
+import { ItemService } from 'src/app/services/item.service';
+import { Item } from 'src/app/models/item.model';
 
 @Component({
   selector: 'zds-edit-item',
@@ -11,15 +12,15 @@ export class EditItemComponent implements OnInit {
 
   form: FormGroup;
 
-  constructor() { }
+  constructor(private itemService: ItemService) { }
 
   ngOnInit() {
     this.form = new FormGroup({
+      'photo': new FormControl(null),
       'name': new FormControl(null, [Validators.required]),
       'price': new FormControl(null, [Validators.required, Validators.min(0)]),
-      'description': new FormControl(null, [Validators.required])
+      'count': new FormControl(null, [Validators.required, Validators.min(0)])
     });
-
   }
 
   isControlInvalid(controlName: string): boolean {
@@ -29,7 +30,12 @@ export class EditItemComponent implements OnInit {
   }
 
   onSubmit() {
-    console.log(this.form);
+    const {name, price, photo, count} = this.form.value;
+    const item = new Item(name, price, count, photo);
+    this.itemService.createNewItem(item)
+      .subscribe(() => {
+        this.form.reset();
+      });
   }
 
   clearForm() {

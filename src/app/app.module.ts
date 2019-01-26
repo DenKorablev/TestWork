@@ -8,7 +8,7 @@ import { EditItemComponent } from './components/edit-item/edit-item.component';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
-import { ItemService } from './services/item.service';
+import { ItemService } from './item.service';
 import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({

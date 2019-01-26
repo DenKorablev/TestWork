@@ -3,6 +3,6 @@
 </header>
 <section fxLayout="row">
     <zds-left-sidebar fxFlex="20"></zds-left-sidebar>
-    <zds-item-container fxFlex="50"></zds-item-container>
-    <zds-edit-item fxFlex="30"></zds-edit-item>
+    <zds-item-container fxFlex="50" [items]="items"></zds-item-container>
+    <zds-edit-item fxFlex="30" (onItemAdd)="newItemAdded($event)"></zds-edit-item>
 </section>

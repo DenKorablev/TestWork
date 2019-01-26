@@ -8,7 +8,8 @@
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e",
-    "json": "json-server basa.js -p 3000"
+    "json": "json-server --watch basa.js -p 3000",
+    "dev": "concurrently --kill-others \"npm run start\" \"npm run json\""
   },
   "private": true,
   "dependencies": {

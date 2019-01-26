@@ -1,7 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
-import { ItemService } from 'src/app/services/item.service';
-import { Item } from 'src/app/models/item.model';
+import { ItemService } from '../../item.service';
+import { Item } from '../../models/item.model';
 
 @Component({
   selector: 'zds-edit-item',
@@ -11,6 +11,8 @@ import { Item } from 'src/app/models/item.model';
 export class EditItemComponent implements OnInit {
 
   form: FormGroup;
+  items: Item[] = [];
+  @Output() onItemAdd = new EventEmitter<Item>();
 
   constructor(private itemService: ItemService) { }
 
@@ -33,7 +35,9 @@ export class EditItemComponent implements OnInit {
     const {name, price, photo, count} = this.form.value;
     const item = new Item(name, price, count, photo);
     this.itemService.createNewItem(item)
-      .subscribe(() => {
+      .subscribe((item: Item) => {
+        debugger;
+        this.onItemAdd.emit(item);
         this.form.reset();
       });
   }

@@ -5,7 +5,7 @@
 </div>
 <div fxLayout="row" class="item-container">
   <div 
-    *ngFor="let item of items" 
+    *ngFor="let item of items | paginate: { itemsPerPage:8, currentPage:p }"
     class="product-item"
   >
     <span class="edit"></span>
@@ -28,3 +28,11 @@
     </div>
   </div>
 </div>
+<pagination-controls 
+  (pageChange)="p=$event" 
+  previousLabel=""
+  nextLabel=""
+  maxSize="4"
+  autoHide="true"
+>
+</pagination-controls>

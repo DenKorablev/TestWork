@@ -11,9 +11,10 @@ export class ItemContainerComponent {
 
   @Input() items: Item[] = [];
 
+
   constructor(
-    private itemService: ItemService
-    ) { }
+    private itemService: ItemService) 
+    { } 
 
   deleteItem(item: Item) {
     this.itemService.removeItem(item)

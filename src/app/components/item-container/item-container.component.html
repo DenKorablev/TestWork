@@ -1,5 +1,5 @@
 <div class="panel-toolbar">
-  <a class="add-item">
+  <a class="add-item" (click)="addProduct()">
       Добавить товар
   </a>
 </div>
@@ -8,7 +8,11 @@
     *ngFor="let item of items | paginate: { itemsPerPage:8, currentPage:p }"
     class="product-item"
   >
-    <span class="edit"></span>
+    <span 
+      class="edit"
+      (click)="editProduct(item)"
+    >
+    </span>
     <span 
       class="delete" 
       (click)="deleteItem(item)"
@@ -28,7 +32,7 @@
     </div>
   </div>
 </div>
-<pagination-controls 
+<pagination-controls style="position: fixed; bottom: 10px; left: 40%"
   (pageChange)="p=$event" 
   previousLabel=""
   nextLabel=""

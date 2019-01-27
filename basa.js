@@ -35,7 +35,21 @@ module.exports = function () {
                 price: 300,                  
                 count: 3, 
                 photo: "assets\\images\\item5.jpg"
-            }           
-        ]      
+            }, 
+            { 
+                id: 6, 
+                name: "Вратарская форма", 
+                price: 700,                  
+                count: 5, 
+                photo: "assets\\images\\item6.jpg"
+            }, 
+            { 
+                id: 7, 
+                name: "Гантели", 
+                price: 250,                  
+                count: 15, 
+                photo: "assets\\images\\item7.jpg"
+            }                   
+        ] 
     } 
 } 

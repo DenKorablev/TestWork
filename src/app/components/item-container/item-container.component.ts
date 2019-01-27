@@ -1,6 +1,8 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { Item } from '../../models/item.model';
 import { ItemService } from '../../item.service';
+import { AddProductsService } from 'src/app/service/addProducts.service';
+import { formArrayNameProvider } from '@angular/forms/src/directives/reactive_directives/form_group_name';
 
 @Component({
   selector: 'zds-item-container',
@@ -10,11 +12,25 @@ import { ItemService } from '../../item.service';
 export class ItemContainerComponent {
 
   @Input() items: Item[] = [];
-
+  @Output() isAdd = new EventEmitter<any>();
+  @Output() editItem = new EventEmitter<any>();
+  formContent:boolean;
 
   constructor(
-    private itemService: ItemService) 
+    private itemService: ItemService,
+    private addProductsService: AddProductsService) 
     { } 
+
+  addProduct() {
+    this.formContent = this.addProductsService.addProd();
+    this.isAdd.emit(this.formContent);
+  }
+
+  editProduct(item: Item) {
+    this.formContent = this.addProductsService.editProd();
+    this.isAdd.emit(this.formContent);
+    this.editItem.emit(item);
+  }
 
   deleteItem(item: Item) {
     this.itemService.removeItem(item)

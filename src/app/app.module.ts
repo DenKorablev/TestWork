@@ -14,6 +14,7 @@ import { ItemContainerComponent } from './components/item-container/item-contain
 import { EditItemComponent } from './components/edit-item/edit-item.component';
 import { ItemService } from './item.service';
 import { SidebarComponent } from './components/sidebar/sidebar.component';
+import { AddProductsService } from './service/addProducts.service';
 
 @NgModule({
   declarations: [
@@ -38,7 +39,8 @@ import { SidebarComponent } from './components/sidebar/sidebar.component';
     NgxPaginationModule
   ],
   providers: [
-    ItemService
+    ItemService,
+    AddProductsService
   ],
   bootstrap: [
     AppComponent

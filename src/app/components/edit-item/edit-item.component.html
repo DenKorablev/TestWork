@@ -1,16 +1,17 @@
 <form [formGroup]="form" (ngSubmit)="onSubmit()">
-    <p class="text-title">Добавление нового товара</p>
+    <p class="text-title" *ngIf="isAddedProduct">Добавление нового товара</p>
+    <p class="text-title" *ngIf="!isAddedProduct">Редактирование товара</p>
     <div class="form-group" fxLayout="row">
         <label for="photo">Фото</label>
         <div fxLayout="column">
             <input            
                 #Image 
-                (change)="fileChangeEvent($event)"
+                (change)="onFileSelected($event)"
                 type="file"
                 id="photo"
                 formControlName="photo"
             >
-            <img src="assets\images\item1.jpg" class="item-image">
+            <img [src]="photoUrl" class="item-image">
         </div>
     </div>
     <div class="form-group" fxLayout="row">
@@ -22,6 +23,7 @@
                 id="name"
                 placeholder="Введите название"
                 formControlName="name"
+                [value]="item.name"
             >
             <span 
                 class="error-message"
@@ -41,6 +43,7 @@
                 placeholder="Введите цену"
                 formControlName="price"
                 min=1
+                [value]="item.price"
             >
             <span 
                 class="error-message"
@@ -68,6 +71,7 @@
                 id="count"
                 placeholder="Введите количество"
                 formControlName="count"
+                [value]="item.count"
             >
             <span 
                 class="error-message"
@@ -88,10 +92,18 @@
     </div>
     <div class="form-group" fxLayout="row">
         <button 
+            *ngIf="isAddedProduct"
             type="submit" 
             [disabled]="form.invalid"
         >
             Ок
+        </button>
+        <button 
+            *ngIf="!isAddedProduct"
+            type="submit" 
+            [disabled]="form.invalid"
+        >
+            Принять
         </button>
         <button
             type="submit"

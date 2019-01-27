@@ -23,7 +23,8 @@
                 id="name"
                 placeholder="Введите название"
                 formControlName="name"
-                [value]="item.name"
+                [ngModel]="item.name"
+                ngModel
             >
             <span 
                 class="error-message"
@@ -43,7 +44,8 @@
                 placeholder="Введите цену"
                 formControlName="price"
                 min=1
-                [value]="item.price"
+                [ngModel]="item.price"
+                ngModel
             >
             <span 
                 class="error-message"
@@ -71,7 +73,8 @@
                 id="count"
                 placeholder="Введите количество"
                 formControlName="count"
-                [value]="item.count"
+                [ngModel]="item.count"
+                ngModel
             >
             <span 
                 class="error-message"

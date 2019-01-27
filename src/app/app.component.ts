@@ -11,7 +11,7 @@ import { AddProductsService } from './service/addProducts.service';
 export class AppComponent {
   items: Item[] = [];
   title = 'test-store';
-  public isAddedProduct: boolean;
+  isAddedProduct: boolean;
   editItem: Item;
 
   constructor(
@@ -29,13 +29,17 @@ export class AppComponent {
     this.items.push(item);
   }
 
+  itemWasEdited(item: Item) {
+    const idx = this.items
+      .findIndex(p => p.id === item.id);
+    this.items[idx] = item;
+  }
+
   isAddedProducts(event: boolean) {
-    console.log(event);
     this.isAddedProduct = event;
   }
 
   editProduct(eItem: Item) {
     this.editItem = eItem;
-    console.log(this.editItem);
   }
 }

@@ -3,6 +3,19 @@
 </header>
 <section fxLayout="row">
     <zds-sidebar fxFlex="20"></zds-sidebar>
-    <zds-item-container fxFlex="50" [items]="items" (isAdd)="isAddedProducts($event)" (editItem)="editProduct($event)"></zds-item-container>
-    <zds-edit-item fxFlex="30" [item]="editItem" [isAddedProduct]="isAddedProduct" (onItemAdd)="newItemAdded($event)"></zds-edit-item>
+    <zds-item-container 
+        fxFlex="50" 
+        [items]="items" 
+        (isAdd)="isAddedProducts($event)" 
+        (editItem)="editProduct($event)"
+    >
+    </zds-item-container>
+    <zds-edit-item 
+        fxFlex="30" 
+        [item]="editItem" 
+        [isAddedProduct]="isAddedProduct" 
+        (onItemAdd)="newItemAdded($event)"
+        (onItemEdit)="itemWasEdited($event)"
+    >
+    </zds-edit-item>
 </section>

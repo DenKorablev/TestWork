@@ -15,6 +15,10 @@ export class ItemService {
         return this.http.post('http://localhost:3000/products', item);
     }
 
+    updateItem(item: Item): Observable<any> {
+        return this.http.put(`http://localhost:3000/products/${item.id}`, item);
+    }
+
     removeItem(item: Item): Observable<any> {
         return this.http.delete(`http://localhost:3000/products/${item.id}`);
     }

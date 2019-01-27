@@ -11,10 +11,11 @@ import { formArrayNameProvider } from '@angular/forms/src/directives/reactive_di
 })
 export class ItemContainerComponent {
 
+  formContent:boolean;
+
   @Input() items: Item[] = [];
   @Output() isAdd = new EventEmitter<any>();
   @Output() editItem = new EventEmitter<any>();
-  formContent:boolean;
 
   constructor(
     private itemService: ItemService,

@@ -12,10 +12,12 @@ export class EditItemComponent implements OnInit, DoCheck {
 
   form: FormGroup;
   items: Item[] = [];
-  @Input() item: Item;
   selectedFile: File = null;
   photoUrl = '';
+  
+  @Input() item: Item;
   @Output() onItemAdd = new EventEmitter<Item>();
+  @Output() onItemEdit = new EventEmitter<Item>();
   @Input() isAddedProduct: boolean;
 
   constructor(
@@ -54,8 +56,6 @@ export class EditItemComponent implements OnInit, DoCheck {
   }
 
   isControlInvalid(controlName: string): boolean {
-    debugger;
-    let x = this.form.get('name').value;
     const control = this.form.controls[controlName];
     const result = control.invalid && control.touched;
     return result;
@@ -71,6 +71,13 @@ export class EditItemComponent implements OnInit, DoCheck {
         this.form.reset();
         this.photoUrl = '';
       });
+    } else {
+    const {name, price, photo, count, id} = this.form.value;
+    const item = new Item(name, price, count, photo, this.item.id);
+    this.itemService.updateItem(item)
+      .subscribe((item: Item) => {
+        this.onItemEdit.emit(item);
+      });  
     }
   }
   

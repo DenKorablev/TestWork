@@ -54,6 +54,8 @@ export class EditItemComponent implements OnInit, DoCheck {
   }
 
   isControlInvalid(controlName: string): boolean {
+    debugger;
+    let x = this.form.get('name').value;
     const control = this.form.controls[controlName];
     const result = control.invalid && control.touched;
     return result;

@@ -101,7 +101,7 @@
         <button 
             *ngIf="!isAddedProduct"
             type="submit" 
-            [disabled]="form.invalid"
+            [disabled]="form.invalid && form.touched"
         >
             Принять
         </button>

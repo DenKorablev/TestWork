@@ -15,13 +15,15 @@ import { EditItemComponent } from './components/edit-item/edit-item.component';
 import { ItemService } from './item.service';
 import { SidebarComponent } from './components/sidebar/sidebar.component';
 import { AddProductsService } from './service/addProducts.service';
+import { ResizeDirective } from './directive/resize.directive';
 
 @NgModule({
   declarations: [
     AppComponent,
     ItemContainerComponent,
     EditItemComponent,
-    SidebarComponent
+    SidebarComponent,
+    ResizeDirective
   ],
   imports: [
     CommonModule,

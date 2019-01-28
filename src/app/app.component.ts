@@ -1,14 +1,13 @@
-import { Component, Input } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Item } from './models/item.model';
 import { ItemService } from './item.service';
-import { AddProductsService } from './service/addProducts.service';
 
 @Component({
   selector: 'zds-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.less']
 })
-export class AppComponent {
+export class AppComponent implements OnInit {
   items: Item[] = [];
   title = 'test-store';
   isAddedProduct: boolean;
@@ -24,6 +23,7 @@ export class AppComponent {
         this.items = items;
       });
   }
+
 
   newItemAdded(item: Item) {
     this.items.push(item);

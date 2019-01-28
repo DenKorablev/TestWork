@@ -14,11 +14,10 @@ export class EditItemComponent implements OnInit, DoCheck {
   items: Item[] = [];
   selectedFile: File = null;
   photoUrl = '';
-  
   @Input() item: Item;
+  @Input() isAddedProduct: boolean;
   @Output() onItemAdd = new EventEmitter<Item>();
   @Output() onItemEdit = new EventEmitter<Item>();
-  @Input() isAddedProduct: boolean;
 
   constructor(
     private itemService: ItemService,
@@ -41,17 +40,17 @@ export class EditItemComponent implements OnInit, DoCheck {
   }
 
   ngDoCheck() {
-    if(this.item.photo != '') {
+    if (this.item.photo !== '') {
       this.photoUrl = this.item.photo;
     }
   }
 
   onFileSelected(event) {
     this.selectedFile = <File>event.target.files;
-    var reader = new FileReader();
+    const reader = new FileReader();
     reader.onload = (event: any) => {
       this.photoUrl = event.target.result;
-    }
+    };
     reader.readAsDataURL(event.target.files.item(0));
   }
 
@@ -62,7 +61,7 @@ export class EditItemComponent implements OnInit, DoCheck {
   }
 
   onSubmit() {
-    if(this.isAddedProduct) {
+    if (this.isAddedProduct) {
     const {name, price, photo, count} = this.form.value;
     const item = new Item(name, price, count, photo);
     this.itemService.createNewItem(item)
@@ -77,10 +76,10 @@ export class EditItemComponent implements OnInit, DoCheck {
     this.itemService.updateItem(item)
       .subscribe((item: Item) => {
         this.onItemEdit.emit(item);
-      });  
+      });
     }
   }
-  
+
   clearForm() {
     this.form.reset();
   }

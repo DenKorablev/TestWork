@@ -2,6 +2,7 @@ import { Component, OnInit, Output, EventEmitter, Input, DoCheck } from '@angula
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { ItemService } from '../../item.service';
 import { Item } from '../../models/item.model';
+import { HttpClient } from '@angular/common/http';
 
 @Component({
   selector: 'zds-edit-item',
@@ -13,6 +14,7 @@ export class EditItemComponent implements OnInit, DoCheck {
   form: FormGroup;
   items: Item[] = [];
   selectedFile: File = null;
+  image: string;
   photoUrl = '';
   @Input() item: Item;
   @Input() isAddedProduct: boolean;
@@ -21,6 +23,7 @@ export class EditItemComponent implements OnInit, DoCheck {
 
   constructor(
     private itemService: ItemService,
+    private http: HttpClient
     ) { }
 
   ngOnInit() {
@@ -39,12 +42,6 @@ export class EditItemComponent implements OnInit, DoCheck {
     });
   }
 
-  ngDoCheck() {
-    if (this.item.photo !== '') {
-      this.photoUrl = this.item.photo;
-    }
-  }
-
   onFileSelected(event) {
     this.selectedFile = <File>event.target.files;
     const reader = new FileReader();
@@ -52,6 +49,15 @@ export class EditItemComponent implements OnInit, DoCheck {
       this.photoUrl = event.target.result;
     };
     reader.readAsDataURL(event.target.files.item(0));
+    this.upload();
+  }
+
+  upload() {
+    const formData: any = new FormData();
+    const files: File = this.selectedFile;
+    formData.append("uploads", files[0], files[0]['name']);
+    this.image = 'assets//images//' + files[0].name;
+    this.item.photo = this.image;
   }
 
   isControlInvalid(controlName: string): boolean {
@@ -62,7 +68,8 @@ export class EditItemComponent implements OnInit, DoCheck {
 
   onSubmit() {
     if (this.isAddedProduct) {
-    const {name, price, photo, count} = this.form.value;
+    let {name, price, photo, count} = this.form.value;
+    photo = this.image;
     const item = new Item(name, price, count, photo);
     this.itemService.createNewItem(item)
       .subscribe((item: Item) => {
@@ -71,7 +78,8 @@ export class EditItemComponent implements OnInit, DoCheck {
         this.photoUrl = '';
       });
     } else {
-    const {name, price, photo, count, id} = this.form.value;
+    let {name, price, photo, count, id} = this.form.value;
+    photo = this.image;
     const item = new Item(name, price, count, photo, this.item.id);
     this.itemService.updateItem(item)
       .subscribe((item: Item) => {

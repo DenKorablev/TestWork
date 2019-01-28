@@ -4,14 +4,14 @@
 <section zds-resizeWindow fxLayout="row">
     <zds-sidebar fxFlex="20"></zds-sidebar>
     <zds-item-container 
-        fxFlex="55" 
+        fxFlex="50" 
         [items]="items" 
         (isAdd)="isAddedProducts($event)" 
         (editItem)="editProduct($event)"
     >
     </zds-item-container>
     <zds-edit-item 
-        fxFlex="25" 
+        fxFlex="30" 
         [item]="editItem" 
         [isAddedProduct]="isAddedProduct" 
         (onItemAdd)="newItemAdded($event)"

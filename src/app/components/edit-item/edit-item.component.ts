@@ -2,14 +2,13 @@ import { Component, OnInit, Output, EventEmitter, Input, DoCheck } from '@angula
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { ItemService } from '../../item.service';
 import { Item } from '../../models/item.model';
-import { HttpClient } from '@angular/common/http';
 
 @Component({
   selector: 'zds-edit-item',
   templateUrl: './edit-item.component.html',
   styleUrls: ['./edit-item.component.less']
 })
-export class EditItemComponent implements OnInit, DoCheck {
+export class EditItemComponent implements OnInit {
 
   form: FormGroup;
   items: Item[] = [];
@@ -22,8 +21,7 @@ export class EditItemComponent implements OnInit, DoCheck {
   @Output() onItemEdit = new EventEmitter<Item>();
 
   constructor(
-    private itemService: ItemService,
-    private http: HttpClient
+    private itemService: ItemService
     ) { }
 
   ngOnInit() {

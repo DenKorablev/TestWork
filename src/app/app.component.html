@@ -4,14 +4,14 @@
 <section fxLayout="row">
     <zds-sidebar fxFlex="20"></zds-sidebar>
     <zds-item-container 
-        fxFlex="50" 
+        fxFlex="55" 
         [items]="items" 
         (isAdd)="isAddedProducts($event)" 
         (editItem)="editProduct($event)"
     >
     </zds-item-container>
     <zds-edit-item 
-        fxFlex="30" 
+        fxFlex="25" 
         [item]="editItem" 
         [isAddedProduct]="isAddedProduct" 
         (onItemAdd)="newItemAdded($event)"

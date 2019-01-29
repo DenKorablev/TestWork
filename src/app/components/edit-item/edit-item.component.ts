@@ -17,7 +17,9 @@ export class EditItemComponent implements OnInit {
   image: string;
   @Input() item: Item;
   @Input() isAddedProduct: boolean;
+  // tslint:disable-next-line:no-output-on-prefix
   @Output() onItemAdd = new EventEmitter<Item>();
+  // tslint:disable-next-line:no-output-on-prefix
   @Output() onItemEdit = new EventEmitter<Item>();
 
   constructor(
@@ -31,7 +33,7 @@ export class EditItemComponent implements OnInit {
       price: 0,
       count: 0,
       photo: ''
-    }
+    };
     this.isAddedProduct = true;
     this.form = new FormGroup({
       'photo': new FormControl(null),
@@ -53,7 +55,7 @@ export class EditItemComponent implements OnInit {
 
   uploadFile() {
     const formData: any = new FormData();
-    formData.append("uploads", this.selectedFile[0], this.selectedFile[0].name);
+    formData.append('uploads', this.selectedFile[0], this.selectedFile[0].name);
     this.image = 'assets//images//' + this.selectedFile[0].name;
     this.addProductService.photoUrl = this.image;
   }

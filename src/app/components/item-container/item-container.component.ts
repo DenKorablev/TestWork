@@ -41,6 +41,12 @@ export class ItemContainerComponent {
       const index = this.items.indexOf(product);
       if (index > -1) {
         this.items.splice(index, 1);
+        product.name = '';
+        product.price = 0;
+        if (product.photo === this.addProductsService.photoUrl) {
+          this.addProductsService.photoUrl = '';
+        }
+        product.count = 0;
       }
     });
   }

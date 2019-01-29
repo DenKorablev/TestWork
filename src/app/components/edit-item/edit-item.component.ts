@@ -90,5 +90,6 @@ export class EditItemComponent implements OnInit {
 
   clearForm() {
     this.form.reset();
+    this.addProductService.photoUrl = '';
   }
 }

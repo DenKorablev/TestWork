@@ -1,6 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { Item } from './models/item.model';
 import { ItemService } from './item.service';
+import { AddProductsService } from './service/addProducts.service';
 
 @Component({
   selector: 'zds-root',
@@ -14,7 +15,8 @@ export class AppComponent implements OnInit {
   editItem: Item;
 
   constructor(
-    private itemService: ItemService
+    private itemService: ItemService,
+    private addProductService: AddProductsService
     ) { }
 
   ngOnInit() {
@@ -23,7 +25,6 @@ export class AppComponent implements OnInit {
         this.items = items;
       });
   }
-
 
   newItemAdded(item: Item) {
     this.items.push(item);
@@ -41,5 +42,9 @@ export class AppComponent implements OnInit {
 
   editProduct(eItem: Item) {
     this.editItem = eItem;
+  }
+
+  newPhotoUrl(event: any) {
+    this.addProductService.photoUrl = event;
   }
 }

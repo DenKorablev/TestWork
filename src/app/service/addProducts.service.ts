@@ -1,6 +1,7 @@
 export class AddProductsService {
 
     public isAddProduct = true;
+    public photoUrl = '';
 
     addProd(): boolean {
         return this.isAddProduct = true;

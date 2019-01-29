@@ -1,7 +1,8 @@
-import { Component, OnInit, Output, EventEmitter, Input, DoCheck } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter, Input } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { ItemService } from '../../item.service';
 import { Item } from '../../models/item.model';
+import { AddProductsService } from 'src/app/service/addProducts.service';
 
 @Component({
   selector: 'zds-edit-item',
@@ -14,14 +15,14 @@ export class EditItemComponent implements OnInit {
   items: Item[] = [];
   selectedFile: File = null;
   image: string;
-  photoUrl = '';
   @Input() item: Item;
   @Input() isAddedProduct: boolean;
   @Output() onItemAdd = new EventEmitter<Item>();
   @Output() onItemEdit = new EventEmitter<Item>();
 
   constructor(
-    private itemService: ItemService
+    private itemService: ItemService,
+    private addProductService: AddProductsService
     ) { }
 
   ngOnInit() {
@@ -44,18 +45,17 @@ export class EditItemComponent implements OnInit {
     this.selectedFile = <File>event.target.files;
     const reader = new FileReader();
     reader.onload = (event: any) => {
-      this.photoUrl = event.target.result;
+      this.addProductService.photoUrl = event.target.result;
     };
     reader.readAsDataURL(event.target.files.item(0));
-    this.upload();
+    this.uploadFile();
   }
 
-  upload() {
+  uploadFile() {
     const formData: any = new FormData();
-    const files: File = this.selectedFile;
-    formData.append("uploads", files[0], files[0]['name']);
-    this.image = 'assets//images//' + files[0].name;
-    this.item.photo = this.image;
+    formData.append("uploads", this.selectedFile[0], this.selectedFile[0].name);
+    this.image = 'assets//images//' + this.selectedFile[0].name;
+    this.addProductService.photoUrl = this.image;
   }
 
   isControlInvalid(controlName: string): boolean {
@@ -73,10 +73,10 @@ export class EditItemComponent implements OnInit {
       .subscribe((item: Item) => {
         this.onItemAdd.emit(item);
         this.form.reset();
-        this.photoUrl = '';
+        this.addProductService.photoUrl = '';
       });
     } else {
-    let {name, price, photo, count, id} = this.form.value;
+    let { name, price, photo, count } = this.form.value;
     photo = this.image;
     const item = new Item(name, price, count, photo, this.item.id);
     this.itemService.updateItem(item)

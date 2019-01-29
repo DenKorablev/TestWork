@@ -12,14 +12,14 @@ import { formArrayNameProvider } from '@angular/forms/src/directives/reactive_di
 export class ItemContainerComponent {
 
   formContent:boolean;
-
   @Input() items: Item[] = [];
   @Output() isAdd = new EventEmitter<any>();
   @Output() editItem = new EventEmitter<any>();
+  @Output() onPhotoUrl = new EventEmitter<any>();
 
   constructor(
     private itemService: ItemService,
-    private addProductsService: AddProductsService) 
+    private addProductsService: AddProductsService)
     { } 
 
   addProduct() {
@@ -31,6 +31,7 @@ export class ItemContainerComponent {
     this.formContent = this.addProductsService.editProd();
     this.isAdd.emit(this.formContent);
     this.editItem.emit(item);
+    this.onPhotoUrl.emit(item.photo);
   }
 
   deleteItem(item: Item) {

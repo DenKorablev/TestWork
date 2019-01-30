@@ -2,6 +2,7 @@ import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { Item } from './models/item.model';
 import { ItemService } from './item.service';
 import { AddProductsService } from './service/addProducts.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'zds-root',
@@ -16,7 +17,8 @@ export class AppComponent implements OnInit {
 
   constructor(
     private itemService: ItemService,
-    private addProductService: AddProductsService
+    private addProductService: AddProductsService,
+    private router: Router
     ) { }
 
   ngOnInit() {
@@ -24,6 +26,7 @@ export class AppComponent implements OnInit {
       .subscribe((items: Item[]) => {
         this.items = items;
       });
+    this.router.navigate(['/store']);
   }
 
   newItemAdded(item: Item) {

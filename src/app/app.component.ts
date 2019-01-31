@@ -1,8 +1,9 @@
 import { Component, OnInit, Output, EventEmitter } from '@angular/core';
+import { Router } from '@angular/router';
+
 import { Item } from './models/item.model';
 import { ItemService } from './item.service';
 import { AddProductsService } from './service/addProducts.service';
-import { Router } from '@angular/router';
 
 @Component({
   selector: 'zds-root',
@@ -34,6 +35,7 @@ export class AppComponent implements OnInit {
   }
 
   itemWasEdited(item: Item) {
+    debugger;
     const idx = this.items
       .findIndex(p => p.id === item.id);
     this.items[idx] = item;

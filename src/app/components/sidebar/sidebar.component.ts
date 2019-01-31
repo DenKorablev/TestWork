@@ -2,7 +2,6 @@ import {NestedTreeControl} from '@angular/cdk/tree';
 import {Component} from '@angular/core';
 import {MatTreeNestedDataSource} from '@angular/material/tree';
 
-
 interface FoodNode {
   name: string;
   children?: FoodNode[];

@@ -1,5 +1,6 @@
-import { Component, OnInit, Output, EventEmitter, Input } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter, Input, DoCheck } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
+
 import { ItemService } from '../../item.service';
 import { Item } from '../../models/item.model';
 import { AddProductsService } from 'src/app/service/addProducts.service';
@@ -14,7 +15,6 @@ export class EditItemComponent implements OnInit {
   form: FormGroup;
   items: Item[] = [];
   selectedFile: File = null;
-  image: string;
   @Input() item: Item;
   @Input() isAddedProduct: boolean;
   // tslint:disable-next-line:no-output-on-prefix
@@ -24,7 +24,7 @@ export class EditItemComponent implements OnInit {
 
   constructor(
     private itemService: ItemService,
-    private addProductService: AddProductsService
+    public addProductService: AddProductsService
     ) { }
 
   ngOnInit() {
@@ -56,8 +56,7 @@ export class EditItemComponent implements OnInit {
   uploadFile() {
     const formData: any = new FormData();
     formData.append('uploads', this.selectedFile[0], this.selectedFile[0].name);
-    this.image = 'assets//images//' + this.selectedFile[0].name;
-    this.addProductService.photoUrl = this.image;
+    this.addProductService.photoUrl = 'assets//images//' + this.selectedFile[0].name;
   }
 
   isControlInvalid(controlName: string): boolean {
@@ -69,7 +68,7 @@ export class EditItemComponent implements OnInit {
   onSubmit() {
     if (this.isAddedProduct) {
     let {name, price, photo, count} = this.form.value;
-    photo = this.image;
+    photo = this.addProductService.photoUrl;
     const item = new Item(name, price, count, photo);
     this.itemService.createNewItem(item)
       .subscribe((item: Item) => {
@@ -78,8 +77,9 @@ export class EditItemComponent implements OnInit {
         this.addProductService.photoUrl = '';
       });
     } else {
-    let { name, price, photo, count } = this.form.value;
-    photo = this.image;
+      debugger;
+    let { name, price, count, photo } = this.form.value;
+    photo = this.addProductService.photoUrl;
     const item = new Item(name, price, count, photo, this.item.id);
     this.itemService.updateItem(item)
       .subscribe((item: Item) => {

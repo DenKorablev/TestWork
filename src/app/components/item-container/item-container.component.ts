@@ -1,8 +1,8 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
+
 import { Item } from '../../models/item.model';
 import { ItemService } from '../../item.service';
 import { AddProductsService } from 'src/app/service/addProducts.service';
-import { formArrayNameProvider } from '@angular/forms/src/directives/reactive_directives/form_group_name';
 
 @Component({
   selector: 'zds-item-container',

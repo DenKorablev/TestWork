@@ -97,25 +97,25 @@
         </div>
     </div>
     <div class="form-group" fxLayout="row">
-        <button 
+        <zdsBtn 
+            text="Ok"
+            typeValue="submit"
+            disable="{{form.invalid}}"
             *ngIf="isAddedProduct"
-            type="submit" 
-            [disabled]="form.invalid"
         >
-            Ок
-        </button>
-        <button 
+        </zdsBtn>
+        <zdsBtn 
+            text="Принять"
+            typeValue="submit" 
+            disable="{{form.invalid && form.touched}}"
             *ngIf="!isAddedProduct"
-            type="submit" 
-            [disabled]="form.invalid && form.touched"
         >
-            Принять
-        </button>
-        <button
-            type="button"
+        </zdsBtn>
+        <zdsBtn 
+            text="Отмена"
+            typeValue="button"
             (click)="clearForm()" 
         >
-            Отмена
-        </button>
+        </zdsBtn>
     </div>
 </form>

@@ -82,10 +82,9 @@ export class EditItemComponent implements OnInit {
       .subscribe((item: Item) => {
         this.onItemAdd.emit(item);
         this.form.reset();
-        this.addProductService.photoUrl = '';
+        this.addProductService.photoUrl = '/assets/images/not-img.jpg';
       });
     } else {
-      debugger;
     let { name, price, count, photo } = this.form.value;
     photo = this.addProductService.photoUrl;
     const item = new Item(name, price, count, photo, this.item.id);

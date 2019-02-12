@@ -17,6 +17,7 @@ import { SidebarComponent } from './components/sidebar/sidebar.component';
 import { AddProductsService } from './service/addProducts.service';
 import { ResizeDirective } from './directive/resize.directive';
 import { AppRoutingModule } from './route/app-routing.module';
+import { BtnDirective } from './directive/btn.directive';
 
 @NgModule({
   declarations: [
@@ -24,7 +25,8 @@ import { AppRoutingModule } from './route/app-routing.module';
     ItemContainerComponent,
     EditItemComponent,
     SidebarComponent,
-    ResizeDirective
+    ResizeDirective,
+    BtnDirective
   ],
   imports: [
     AppRoutingModule,

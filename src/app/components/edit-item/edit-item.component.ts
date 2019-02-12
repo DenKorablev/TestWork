@@ -65,6 +65,14 @@ export class EditItemComponent implements OnInit {
     return result;
   }
 
+  isNotImage(): string {
+    let itemImage = this.addProductService.photoUrl;
+    if ( itemImage === '') {
+      itemImage = '/assets/images/not-img.jpg';
+    }
+    return itemImage;
+  }
+
   onSubmit() {
     if (this.isAddedProduct) {
     let {name, price, photo, count} = this.form.value;

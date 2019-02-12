@@ -18,7 +18,7 @@
       (click)="deleteItem(item)"
     >
     </span>
-    <img [src]="item.photo">
+    <div fxLayout="column-reverse" class="image" [ngStyle]="{'backgroundImage': 'url('+ item.photo +')'}">
     <div class="product-list">
       <h3>
         {{item.name}} 

@@ -9,32 +9,33 @@ interface FoodNode {
 
 const TREE_DATA: FoodNode[] = [
   {
-    name: 'Fruit',
+    name: 'Одежда',
     children: [
-      {name: 'Apple'},
-      {name: 'Banana'},
-      {name: 'Fruit loops'},
+      {name: 'Зимняя'},
+      {name: 'Летняя'}
     ]
   }, {
-    name: 'Vegetables',
+    name: 'Спортивные товары',
     children: [
       {
-        name: 'Green',
+        name: 'Зима',
         children: [
-          {name: 'Broccoli'},
-          {name: 'Brussel sprouts'},
-        ]
-      }, {
-        name: 'Orange',
-        children: [
-          {name: 'Pumpkins'},
-          {name: 'Carrots'},
+          {name: 'Лыжи'},
+          {name: 'Хоккей'},
         ]
       },
+      {
+        name: 'Лето',
+        children: [
+          {name: 'Мячи'},
+          {name: 'Велосипеды'},
+        ]
+      }, {
+        name: 'Спортзал'
+      }
     ]
   },
 ];
-
 
 @Component({
   selector: 'zds-sidebar',

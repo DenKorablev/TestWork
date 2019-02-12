@@ -10,8 +10,29 @@
   font-size: 18px;
 }
 
+.mat-tree-node {
+  cursor: pointer;
+  &:hover {
+    color: white;
+    background: #3ce;
+    width: 100%;
+    .arrow-expand, 
+    .arrow-collapsed {
+      border-color: white;     
+    }
+  }
+}
+
+.mat-icon {
+  height: 12px;
+  width: 12px;
+}
+
 .mat-icon-button {
   background: none;
+  outline: none;
+  position: absolute;
+  left: 300px;
 }
 
 .parent-node {
@@ -21,7 +42,13 @@
 }
 
 .arrow-expand {
-  border-bottom: 2px solid black;
-  border-left: 2px solid black;
-  transform: rotate(90deg);
+  border-top: 2px solid black;
+  border-right: 2px solid black;
+  transform: rotate(135deg);
+}
+
+.arrow-collapsed {
+  border-top: 2px solid black;
+  border-right: 2px solid black;
+  transform: rotate(45deg);
 }

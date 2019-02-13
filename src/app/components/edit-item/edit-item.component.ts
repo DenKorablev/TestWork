@@ -32,7 +32,8 @@ export class EditItemComponent implements OnInit {
       name: '',
       price: 0,
       count: 0,
-      photo: ''
+      photo: '',
+      category: []
     };
     this.isAddedProduct = true;
     this.form = new FormGroup({
@@ -78,6 +79,7 @@ export class EditItemComponent implements OnInit {
     let {name, price, photo, count} = this.form.value;
     photo = this.addProductService.photoUrl;
     const item = new Item(name, price, count, photo);
+    item.category.push(this.addProductService.selectedCategory, 'all');
     this.itemService.createNewItem(item)
       .subscribe((item: Item) => {
         this.onItemAdd.emit(item);
@@ -87,7 +89,7 @@ export class EditItemComponent implements OnInit {
     } else {
     let { name, price, count, photo } = this.form.value;
     photo = this.addProductService.photoUrl;
-    const item = new Item(name, price, count, photo, this.item.id);
+    const item = new Item(name, price, count, photo, this.item.id, this.item.category);
     this.itemService.updateItem(item)
       .subscribe((item: Item) => {
         this.onItemEdit.emit(item);

@@ -12,10 +12,10 @@
 
 .mat-tree-node {
   cursor: pointer;
+  outline: none;
   &:hover {
     color: white;
     background: #3ce;
-    width: 100%;
     .arrow-expand, 
     .arrow-collapsed {
       border-color: white;     
@@ -38,7 +38,6 @@
 .parent-node {
   margin-right: 10px;
   padding: 10px;
-  margin-left: 20px;
 }
 
 .arrow-expand {
@@ -52,3 +51,48 @@
   border-right: 2px solid black;
   transform: rotate(45deg);
 }
+
+ul {
+  padding: 0;
+}
+
+.loop(@counter, @index: 0) when (@index =< @counter) {
+  .mat-tree >.mat-tree-node {
+      &.active {
+        color: white;
+        background: #3ce;
+        border-left: 10px solid rgb(31, 117, 133);
+        padding-left: 30px - 10px + @index * 20;
+      }
+  }
+  ul {
+    .mat-tree-node {
+          padding-left: 30px + @index * 20;
+          &.active {
+            color: white;
+            background: #3ce;
+            border-left: 10px solid rgb(31, 117, 133);
+            padding-left: 30px - 10px + @index * 20;
+          }
+      }
+
+      .mat-nested-tree-node li {
+        padding-left: 0;
+        }
+        .parent-node {
+        margin-left: 20px;
+
+      }
+      .loop(@counter, (@index + 1));
+      
+  }
+}
+
+.mat-tree-node {
+  padding-left: 30px;
+  li {
+      padding-left: 10px;
+    }
+}
+.loop(8);
+

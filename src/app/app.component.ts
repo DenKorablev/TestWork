@@ -1,4 +1,4 @@
-import { Component, OnInit, Output, EventEmitter } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 
 import { Item } from './models/item.model';
@@ -12,7 +12,6 @@ import { AddProductsService } from './service/addProducts.service';
 })
 export class AppComponent implements OnInit {
   items: Item[] = [];
-  title = 'test-store';
   isAddedProduct: boolean;
   editItem: Item;
 
@@ -23,11 +22,19 @@ export class AppComponent implements OnInit {
     ) { }
 
   ngOnInit() {
-    this.itemService.getItem()
-      .subscribe((items: Item[]) => {
-        this.items = items;
-      });
+    this.getItemsCategory();
     this.router.navigate(['/store']);
+  }
+
+  getItemsCategory() {
+    const selectCategory = this.addProductService.selectedCategory;
+    this.itemService.getItem()
+    .subscribe((items: Item[]) => {
+      const filterItem = items.filter(
+        p => selectCategory === null
+        || p.category.indexOf(selectCategory) !== -1);
+      this.items = filterItem;
+    });
   }
 
   newItemAdded(item: Item) {
@@ -35,7 +42,6 @@ export class AppComponent implements OnInit {
   }
 
   itemWasEdited(item: Item) {
-    debugger;
     const idx = this.items
       .findIndex(p => p.id === item.id);
     this.items[idx] = item;
@@ -51,5 +57,10 @@ export class AppComponent implements OnInit {
 
   newPhotoUrl(event: any) {
     this.addProductService.photoUrl = event;
+  }
+
+  changeCategoryItems(category: string) {
+    this.addProductService.selectedCategory = category;
+    this.getItemsCategory();
   }
 }

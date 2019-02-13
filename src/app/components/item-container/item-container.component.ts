@@ -1,4 +1,4 @@
-import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
+import { Component, Input, Output, EventEmitter } from '@angular/core';
 
 import { Item } from '../../models/item.model';
 import { ItemService } from '../../item.service';
@@ -11,7 +11,7 @@ import { AddProductsService } from 'src/app/service/addProducts.service';
 })
 export class ItemContainerComponent {
 
-  formContent:boolean;
+  formContent: boolean;
   @Input() items: Item[] = [];
   @Output() isAdd = new EventEmitter<any>();
   @Output() editItem = new EventEmitter<any>();
@@ -19,8 +19,7 @@ export class ItemContainerComponent {
 
   constructor(
     private itemService: ItemService,
-    private addProductsService: AddProductsService)
-    { } 
+    private addProductsService: AddProductsService) { }
 
   addProduct() {
     this.formContent = this.addProductsService.addProd();

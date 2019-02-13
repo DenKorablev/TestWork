@@ -2,7 +2,12 @@
     <div class="header-title">Интернет магазин</div>
 </header>
 <section zds-resizeWindow fxLayout="row">
-    <zds-sidebar class="sidebar" fxFlex="20"></zds-sidebar>
+    <zds-sidebar 
+        class="sidebar" 
+        fxFlex="20"
+        (selectedCategory)="changeCategoryItems($event)"
+    >
+    </zds-sidebar>
     <zds-item-container 
         fxFlex="50" 
         [items]="items" 

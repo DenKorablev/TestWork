@@ -5,6 +5,6 @@ export class Item {
         public count: number,
         public photo: string,
         public id?: number,
-        public category: [] = []
+        public category: string[] = []
     ) { }
 }

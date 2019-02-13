@@ -30,9 +30,12 @@ export class AppComponent implements OnInit {
     const selectCategory = this.addProductService.selectedCategory;
     this.itemService.getItem()
     .subscribe((items: Item[]) => {
-      const filterItem = items.filter(
+      let filterItem = items;
+      if (selectCategory !== null) {
+      filterItem = items.filter(
         p => selectCategory === null
         || p.category.indexOf(selectCategory) !== -1);
+      }
       this.items = filterItem;
     });
   }

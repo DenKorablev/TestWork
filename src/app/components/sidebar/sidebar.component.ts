@@ -12,7 +12,7 @@ interface FoodNode {
 
 const TREE_DATA: FoodNode[] = [
   {
-    name: 'Все товары', category: 'all'
+    name: 'Все товары', category: null
   },
   {
     name: 'Одежда',

@@ -79,7 +79,7 @@ export class EditItemComponent implements OnInit {
     let {name, price, photo, count} = this.form.value;
     photo = this.addProductService.photoUrl;
     const item = new Item(name, price, count, photo);
-    item.category.push(this.addProductService.selectedCategory, 'all');
+    item.category.push(this.addProductService.selectedCategory);
     this.itemService.createNewItem(item)
       .subscribe((item: Item) => {
         this.onItemAdd.emit(item);
@@ -99,6 +99,6 @@ export class EditItemComponent implements OnInit {
 
   clearForm() {
     this.form.reset();
-    this.addProductService.photoUrl = '';
+    this.addProductService.photoUrl = '/assets/images/not-img.jpg';
   }
 }

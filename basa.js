@@ -7,7 +7,7 @@ module.exports = function () {
                 price: 1000,                  
                 count: 3, 
                 photo: "assets//images//item1.jpg",
-                category: ["all", "winter"]
+                category: ["winter"]
             },             
             { 
                 id: 2, 
@@ -15,7 +15,7 @@ module.exports = function () {
                 price: 1050,                  
                 count: 5, 
                 photo: "assets//images//item2.jpg",
-                category: ["all", "winter", "winterClothes"]
+                category: ["winter", "winterClothes"]
             }, 
             { 
                 id: 3, 
@@ -23,7 +23,7 @@ module.exports = function () {
                 price: 500,                  
                 count: 47, 
                 photo: "assets//images//item3.jpg",
-                category: ["all", "winter"]
+                category: ["winter"]
             }, 
             { 
                 id: 4, 
@@ -31,7 +31,7 @@ module.exports = function () {
                 price: 150,                  
                 count: 78, 
                 photo: "assets//images//item4.jpg",
-                category: ["all", "winter", "winterClothes"]
+                category: ["winter", "winterClothes"]
             }, 
             { 
                 id: 5, 
@@ -39,7 +39,7 @@ module.exports = function () {
                 price: 300,                  
                 count: 3, 
                 photo: "assets//images//item5.jpg",
-                category: ["all", "ball", "summer"]
+                category: ["ball", "summer"]
             }, 
             { 
                 id: 6, 
@@ -47,7 +47,7 @@ module.exports = function () {
                 price: 700,                  
                 count: 5, 
                 photo: "assets//images//item6.jpg",
-                category: ["all", "winter", "winterClothes"]
+                category: ["winter", "winterClothes"]
             }, 
             { 
                 id: 7, 
@@ -55,7 +55,7 @@ module.exports = function () {
                 price: 250,                  
                 count: 15, 
                 photo: "assets//images//item7.jpg",
-                category: ["all", "gym", "summer"]
+                category: ["gym", "summer"]
             }                   
         ] 
     } 

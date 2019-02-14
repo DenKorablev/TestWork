@@ -3,7 +3,9 @@ import { Routes, RouterModule } from '@angular/router';
 import { AppComponent } from '../app.component';
 
 const route: Routes = [
-    { path: 'store', component: AppComponent, pathMatch: 'full' }
+    { path: '', redirectTo: 'store', pathMatch: 'full' },
+    { path: 'store', component: AppComponent },
+    { path: 'store/:category', component: AppComponent }
 ]
 
 @NgModule({

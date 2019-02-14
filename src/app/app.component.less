@@ -30,10 +30,47 @@ header {
 }
 
 .sidebar {
-    margin-right: 2rem;
-    background-color: white;
-    border-radius: 8px;
     box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+    border-radius: 8px;
+    background-color: white;
+    margin-right: 2rem;
     height: 100%;
+}
+
+.nav-btn {
+    width: 50px;
+    min-height: 30px;
+    height: auto;
+    cursor: pointer;
+
+    span {
+        background-color: #fff;
+        display: block;
+        width: 40px;
+        height: 4px;
+        border: .5vmin;
+        transition: all 100ms linear;
+        position: relative;
+        margin: 8px 5px;
+    }
+    &:hover {
+        background-color: #00b0f0;  
+    }
+    &.open {
+        background-color: #00b0f0;
+        span {
+            &:nth-child(1) {
+                top: 12px;
+                transform: rotate(45deg);
+            }
+            &:nth-child(2) {
+                opacity: 0;
+            }
+            &:nth-child(3) {
+                top: -11px;
+                transform: rotate(-45deg);
+            }
+        }
+    }
 }
 

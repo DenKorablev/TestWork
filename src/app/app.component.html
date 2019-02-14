@@ -1,15 +1,25 @@
-<header>
+<header fxLayout="row">
+    <div 
+        class="nav-btn" 
+        [class.open]="this.isSidebarOpen"
+        (click)="sidebarOpen()"
+        >
+        <span></span>
+        <span></span>
+        <span></span>
+    </div>
     <div class="header-title">Интернет магазин</div>
 </header>
 <section zds-resizeWindow fxLayout="row">
     <zds-sidebar 
-        class="sidebar" 
-        fxFlex="20"
+        [@changeSizeSidebar]="currentState"  
+        class="sidebar"      
+        [class.open]="this.isSidebarOpen"
         (selectedCategory)="changeCategoryItems($event)"
     >
     </zds-sidebar>
     <zds-item-container 
-        fxFlex="50" 
+        fxFlex="100"
         [items]="items" 
         (isAdd)="isAddedProducts($event)" 
         (editItem)="editProduct($event)"
@@ -17,7 +27,6 @@
     >
     </zds-item-container>
     <zds-edit-item 
-        fxFlex="30" 
         [item]="editItem" 
         [isAddedProduct]="isAddedProduct" 
         (onItemAdd)="newItemAdded($event)"

@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
+import { trigger, state, style, animate, transition } from '@angular/animations';
 
 import { Item } from './models/item.model';
 import { ItemService } from './item.service';
@@ -8,22 +8,33 @@ import { AddProductsService } from './service/addProducts.service';
 @Component({
   selector: 'zds-root',
   templateUrl: './app.component.html',
-  styleUrls: ['./app.component.less']
+  styleUrls: ['./app.component.less'],
+  animations: [  
+    trigger('changeSizeSidebar', [  
+      state('initial', style({  
+        width: '50px',  
+      })),  
+      state('final', style({  
+        width: '650px',  
+      })),  
+      transition('initial=>final', animate('150ms')),  
+      transition('final=>initial', animate('150ms'))  
+    ]),  
+  ]  
 })
 export class AppComponent implements OnInit {
   items: Item[] = [];
   isAddedProduct: boolean;
   editItem: Item;
-
+  public isSidebarOpen: boolean = false;
+  public currentState = 'initial';
   constructor(
     private itemService: ItemService,
-    private addProductService: AddProductsService,
-    private router: Router
+    private addProductService: AddProductsService
     ) { }
 
   ngOnInit() {
     this.getItemsCategory();
-    this.router.navigate(['/store']);
   }
 
   getItemsCategory() {
@@ -65,5 +76,10 @@ export class AppComponent implements OnInit {
   changeCategoryItems(category: string) {
     this.addProductService.selectedCategory = category;
     this.getItemsCategory();
+  }
+    
+  sidebarOpen() {
+    this.currentState = this.currentState === 'initial' ? 'final' : 'initial';
+    this.isSidebarOpen = !this.isSidebarOpen;
   }
 }

@@ -39,3 +39,14 @@ button[disabled] {
         cursor: default; 
     }
 }
+
+.sidebar {
+    .mat-tree {
+        visibility: hidden;
+    }
+    &.open {
+        .mat-tree {
+            visibility: visible;   
+        }    
+    }
+}

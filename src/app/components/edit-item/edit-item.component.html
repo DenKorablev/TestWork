@@ -1,6 +1,6 @@
 <form [formGroup]="form" (ngSubmit)="onSubmit()">
     <p class="text-title" *ngIf="isAddedProduct">Добавление нового товара</p>
-    <p class="text-title" *ngIf="!isAddedProduct">Редактирование товара</p>
+    <p class="text-title" *ngIf="!isAddedProduct">Редактирование товара:<br><span class="item-name">{{item.name}}</span></p>
     <div class="form-group" fxLayout="column">
         <label class="uploadButton" for="photo">Загрузить изображение</label>
         <div fxLayout="row">

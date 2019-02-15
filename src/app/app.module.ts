@@ -18,6 +18,8 @@ import { AddProductsService } from './service/addProducts.service';
 import { ResizeDirective } from './directive/resize.directive';
 import { AppRoutingModule } from './route/app-routing.module';
 import { BtnDirective } from './directive/btn.directive';
+import { PaginationDirective } from './directive/pagination.directive';
+import { FilterPipe } from './pipe/filter.pipe';
 
 @NgModule({
   declarations: [
@@ -26,7 +28,9 @@ import { BtnDirective } from './directive/btn.directive';
     EditItemComponent,
     SidebarComponent,
     ResizeDirective,
-    BtnDirective
+    BtnDirective,
+    PaginationDirective,
+    FilterPipe
   ],
   imports: [
     AppRoutingModule,

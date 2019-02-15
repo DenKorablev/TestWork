@@ -2,10 +2,14 @@
   <a class="add-item" (click)="addProduct()">
       Добавить товар
   </a>
+  <div class="filter-container">
+    <label></label>
+    <input class="filter" type="text" [(ngModel)]="this.searchProduct">
+  </div>
 </div>
-<div fxLayout="row" class="item-container">
+<div fxLayout="row" class="item-container" zdsPagination>
   <div 
-    *ngFor="let item of items | paginate: { itemsPerPage:8, currentPage:p }"
+    *ngFor="let item of items | filter:this.searchProduct | paginate: { itemsPerPage:this.addProductsService.itemsPer, currentPage:p }"
     class="product-item"
   >
     <span 

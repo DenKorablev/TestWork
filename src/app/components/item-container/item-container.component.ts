@@ -1,4 +1,4 @@
-import { Component, Input, Output, EventEmitter } from '@angular/core';
+import { Component, Input, Output, EventEmitter, HostListener } from '@angular/core';
 
 import { Item } from '../../models/item.model';
 import { ItemService } from '../../item.service';
@@ -16,7 +16,8 @@ export class ItemContainerComponent {
   @Output() isAdd = new EventEmitter<any>();
   @Output() editItem = new EventEmitter<any>();
   @Output() onPhotoUrl = new EventEmitter<any>();
-
+  searchProduct = '';
+  
   constructor(
     private itemService: ItemService,
     private addProductsService: AddProductsService) { }
@@ -31,7 +32,7 @@ export class ItemContainerComponent {
     this.isAdd.emit(this.formContent);
     this.editItem.emit(item);
     this.onPhotoUrl.emit(item.photo);
-  }
+  } 
 
   deleteItem(item: Item) {
     this.itemService.removeItem(item)

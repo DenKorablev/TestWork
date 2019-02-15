@@ -13,9 +13,11 @@ import { AddProductsService } from './service/addProducts.service';
     trigger('changeSizeSidebar', [  
       state('initial', style({  
         width: '50px',  
+        minWidth: '50px'
       })),  
       state('final', style({  
-        width: '650px',  
+        width: '380px',
+        minWidth: '380px'
       })),  
       transition('initial=>final', animate('150ms')),  
       transition('final=>initial', animate('150ms'))  

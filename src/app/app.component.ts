@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit} from '@angular/core';
 import { trigger, state, style, animate, transition } from '@angular/animations';
 
 import { Item } from './models/item.model';
@@ -30,6 +30,8 @@ export class AppComponent implements OnInit {
   editItem: Item;
   public isSidebarOpen: boolean = false;
   public currentState = 'initial';
+  isLoaded: boolean;
+
   constructor(
     private itemService: ItemService,
     private addProductService: AddProductsService
@@ -39,8 +41,10 @@ export class AppComponent implements OnInit {
     this.getItemsCategory();
   }
 
-  getItemsCategory() {
+
+  getItemsCategory(): void {
     const selectCategory = this.addProductService.selectedCategory;
+    this.isLoaded = false;
     this.itemService.getItem()
     .subscribe((items: Item[]) => {
       let filterItem = items;
@@ -50,37 +54,38 @@ export class AppComponent implements OnInit {
         || p.category.indexOf(selectCategory) !== -1);
       }
       this.items = filterItem;
+      this.isLoaded = true;
     });
   }
 
-  newItemAdded(item: Item) {
+  newItemAdded(item: Item): void {
     this.items.push(item);
   }
 
-  itemWasEdited(item: Item) {
+  itemWasEdited(item: Item): void {
     const idx = this.items
       .findIndex(p => p.id === item.id);
     this.items[idx] = item;
   }
 
-  isAddedProducts(event: boolean) {
+  isAddedProducts(event: boolean): void {
     this.isAddedProduct = event;
   }
 
-  editProduct(eItem: Item) {
+  editProduct(eItem: Item): void {
     this.editItem = eItem;
   }
 
-  newPhotoUrl(event: any) {
+  newPhotoUrl(event: any): void {
     this.addProductService.photoUrl = event;
   }
 
-  changeCategoryItems(category: string) {
+  changeCategoryItems(category: string): void {
     this.addProductService.selectedCategory = category;
     this.getItemsCategory();
-  }
-    
-  sidebarOpen() {
+  }  
+
+  sidebarOpen(): void {
     this.currentState = this.currentState === 'initial' ? 'final' : 'initial';
     this.isSidebarOpen = !this.isSidebarOpen;
   }

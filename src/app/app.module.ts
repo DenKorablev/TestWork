@@ -6,6 +6,7 @@ import { CommonModule } from '@angular/common';
 import { HttpClientModule } from '@angular/common/http';
 import { LayoutModule } from '@angular/cdk/layout';
 import { MatTreeModule, MatButtonModule, MatIconModule, MatListModule } from '@angular/material';
+import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NgxPaginationModule } from 'ngx-pagination';
 
@@ -46,7 +47,8 @@ import { FilterPipe } from './pipe/filter.pipe';
     MatIconModule,
     MatListModule,
     MatTreeModule,
-    NgxPaginationModule
+    NgxPaginationModule,
+    MatProgressSpinnerModule
   ],
   providers: [
     ItemService,

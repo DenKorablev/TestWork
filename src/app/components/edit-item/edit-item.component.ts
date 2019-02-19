@@ -35,10 +35,11 @@ export class EditItemComponent implements OnInit {
       photo: '',
       category: []
     };
+
     this.isAddedProduct = true;
     this.form = new FormGroup({
       'photo': new FormControl(null),
-      'name': new FormControl(null, [Validators.required]),
+      'name': new FormControl(null, [Validators.required, Validators.pattern(/([^0-9]{1,1})/)]),
       'price': new FormControl(null, [Validators.required, Validators.min(0)]),
       'count': new FormControl(null, [Validators.required, Validators.min(0)])
     });
@@ -89,7 +90,7 @@ export class EditItemComponent implements OnInit {
     } else {
     let { name, price, count, photo } = this.form.value;
     photo = this.addProductService.photoUrl;
-    const item = new Item(name, price, count, photo, this.item.id, this.item.category);
+    const item = new Item(name, price, count, photo, this.item.category, this.item.id);
     this.itemService.updateItem(item)
       .subscribe((item: Item) => {
         this.onItemEdit.emit(item);

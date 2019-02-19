@@ -1,5 +1,6 @@
 <header fxLayout="row">
     <div 
+        zdsPagination
         class="nav-btn" 
         [class.open]="this.isSidebarOpen"
         (click)="sidebarOpen()"
@@ -11,7 +12,13 @@
     <div class="header-title">Интернет магазин</div>
 </header>
 <section zds-resizeWindow fxLayout="row">
-    <zds-sidebar 
+    <mat-spinner
+        *ngIf="!this.isLoaded"
+        class="spinner"
+        diameter=50
+    >
+    </mat-spinner>
+    <zds-sidebar
         [@changeSizeSidebar]="currentState"  
         class="sidebar"      
         [class.open]="this.isSidebarOpen"

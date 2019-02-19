@@ -4,7 +4,7 @@ export class Item {
         public price: number,
         public count: number,
         public photo: string,
-        public id?: number,
-        public category: string[] = []
+        public category: string[] = [],
+        public id?: number
     ) { }
 }

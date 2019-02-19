@@ -1,4 +1,4 @@
-import { Component, Input, Output, EventEmitter, HostListener } from '@angular/core';
+import { Component, Input, Output, EventEmitter } from '@angular/core';
 
 import { Item } from '../../models/item.model';
 import { ItemService } from '../../item.service';
@@ -10,13 +10,12 @@ import { AddProductsService } from 'src/app/service/addProducts.service';
   styleUrls: ['./item-container.component.less']
 })
 export class ItemContainerComponent {
-
   formContent: boolean;
   @Input() items: Item[] = [];
   @Output() isAdd = new EventEmitter<any>();
   @Output() editItem = new EventEmitter<any>();
   @Output() onPhotoUrl = new EventEmitter<any>();
-  searchProduct = '';
+  searchProduct: string = '';
   
   constructor(
     private itemService: ItemService,
@@ -51,4 +50,5 @@ export class ItemContainerComponent {
     });
   }
 }
+
 

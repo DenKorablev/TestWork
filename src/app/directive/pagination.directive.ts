@@ -1,4 +1,4 @@
-import { Directive, HostListener, ElementRef, HostBinding } from '@angular/core';
+import { Directive, HostListener, ElementRef } from '@angular/core';
 import { AddProductsService } from '../service/addProducts.service';
 
 @Directive({
@@ -28,5 +28,9 @@ export class PaginationDirective {
     if(width < 600) {
       this.addProductsService.itemsPer = 4;
     }
+  }
+
+  public resizeContent(): void {
+    alert("23123");
   }
 }

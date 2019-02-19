@@ -5,7 +5,7 @@
         <label class="uploadButton" for="photo">Загрузить изображение</label>
         <div fxLayout="row">
         <label>Фото</label>
-            <div >
+            <div>
                 <input            
                     (change)="onFileSelected($event)"
                     type="file"
@@ -34,6 +34,7 @@
                 *ngIf="isControlInvalid('name')"
             >
                 <span class="error-message-text" *ngIf="form.get('name')['errors']['required']">* Поле наименования должно быть заполнено</span>
+                <span class="error-message-text" *ngIf="form.get('name')['errors']['pattern']">* Поле наименования не может начинаться с цифры</span>
             </span>
         </div>
     </div>

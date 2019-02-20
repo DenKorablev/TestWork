@@ -4,7 +4,7 @@
     <div class="form-group" fxLayout="column">
         <label class="uploadButton" for="photo">Загрузить изображение</label>
         <div fxLayout="row">
-        <label>Фото</label>
+        <label fxLayoutAlign="center center" >Фото</label>
             <div>
                 <input            
                     (change)="onFileSelected($event)"
@@ -17,18 +17,21 @@
             </div>
         </div>
     </div>
-    <div class="form-group" fxLayout="row">
+    <div class="form-group" fxLayout="row" fxLayoutAlign="center">
         <label for="name">Наименование</label>
         <div fxLayout="column">
-            <input
-                [class.danger]="isControlInvalid('name')"              
-                type="text"
-                id="name"
-                placeholder="Введите название"
-                formControlName="name"
-                [ngModel]="item.name"
-                ngModel
-            >
+            <mat-form-field class="example-full-width">
+                <input 
+                    matInput 
+                    [class.danger]="isControlInvalid('name')"              
+                    type="text"
+                    id="name"
+                    placeholder="Введите название"
+                    formControlName="name"
+                    [ngModel]="item.name"
+                    ngModel
+                >
+            </mat-form-field>
             <span 
                 class="error-message"
                 *ngIf="isControlInvalid('name')"
@@ -38,19 +41,22 @@
             </span>
         </div>
     </div>
-    <div class="form-group" fxLayout="row">
+    <div class="form-group" fxLayout="row" fxLayoutAlign="center">
         <label for="price">Цена</label>
         <div fxLayout="column">
-            <input
-                [class.danger]="isControlInvalid('price')"
-                type="number"
-                id="price"
-                placeholder="Введите цену"
-                formControlName="price"
-                min=1
-                [ngModel]="item.price"
-                ngModel
-            >
+            <mat-form-field class="example-full-width">
+                <input 
+                    matInput 
+                    [class.danger]="isControlInvalid('price')"
+                    type="number"
+                    id="price"
+                    placeholder="Введите наименование"
+                    formControlName="price"
+                    min=1
+                    [ngModel]="item.price"
+                    ngModel
+                >
+            </mat-form-field>
             <span 
                 class="error-message"
                 *ngIf="isControlInvalid('price')"
@@ -68,18 +74,21 @@
             </span>
         </div>
     </div>
-    <div class="form-group" fxLayout="row">
+    <div class="form-group" fxLayout="row" fxLayoutAlign="center">
         <label for="count">Количество</label>
         <div fxLayout="column">
-            <input
-                [class.danger]="isControlInvalid('count')"
-                type="number"
-                id="count"
-                placeholder="Введите количество"
-                formControlName="count"
-                [ngModel]="item.count"
-                ngModel
-            >
+            <mat-form-field class="example-full-width">
+                    <input 
+                        matInput 
+                        [class.danger]="isControlInvalid('count')"
+                        type="number"
+                        id="count"
+                        placeholder="Введите количество"
+                        formControlName="count"
+                        [ngModel]="item.count"
+                        ngModel
+                    >
+                </mat-form-field>
             <span 
                 class="error-message"
                 *ngIf="isControlInvalid('count')"
@@ -97,7 +106,7 @@
             </span>
         </div>
     </div>
-    <div class="form-group" fxLayout="row">
+    <div class="form-group" fxLayout="row" fxLayoutAlign="center">
         <zdsBtn 
             text="Ok"
             typeValue="submit"

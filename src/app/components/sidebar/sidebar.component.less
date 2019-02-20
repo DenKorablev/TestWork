@@ -1,18 +1,19 @@
-.example-tree-invisible {
+.tree-invisible {
     display: none;
   }
   
-.example-tree ul,
-.example-tree li {
+.menu-tree ul,
+.menu-tree li {
   margin-top: 0;
   margin-bottom: 0;
   list-style-type: none;
-  font-size: 18px;
+  font-size: 16px;
 }
 
 .mat-tree-node {
   cursor: pointer;
   outline: none;
+  font-size: 16px;
   &:hover {
     color: white;
     background: #3ce;
@@ -21,6 +22,9 @@
       border-color: white;     
     }
   }
+  &.active li {
+    color: white;
+  } 
 }
 
 .mat-icon {
@@ -59,7 +63,6 @@ ul {
 .loop(@counter, @index: 0) when (@index =< @counter) {
   .mat-tree >.mat-tree-node {
       &.active {
-        color: white;
         background: #3ce;
         border-left: 10px solid #00b0f0;
         padding-left: 30px - 10px + @index * 20;
@@ -69,7 +72,6 @@ ul {
     .mat-tree-node {
           padding-left: 30px + @index * 20;
           &.active {
-            color: white;
             background: #3ce;
             border-left: 10px solid #00b0f0;
             padding-left: 30px - 10px + @index * 20;

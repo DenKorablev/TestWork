@@ -1,4 +1,4 @@
-<mat-tree [dataSource]="dataSource" [treeControl]="treeControl" class="example-tree">
+<mat-tree [dataSource]="dataSource" [treeControl]="treeControl" class="menu-tree">
   <!-- This is the tree node template for leaf nodes -->
   <mat-tree-node *matTreeNodeDef="let node" matTreeNodeToggle [class.active]="node.category == selectCategory" (click)="changeCategory(node.category)">
     <li class="mat-tree-node" [routerLink]="['/store', node.name]">
@@ -19,7 +19,7 @@
           </mat-icon>
         </a>
       </div>
-      <ul [class.example-tree-invisible]="!treeControl.isExpanded(node)">
+      <ul [class.tree-invisible]="!treeControl.isExpanded(node)">
         <ng-container matTreeNodeOutlet></ng-container>
       </ul>
     </li>

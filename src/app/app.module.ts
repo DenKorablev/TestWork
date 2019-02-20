@@ -9,6 +9,7 @@ import { MatTreeModule, MatButtonModule, MatIconModule, MatListModule } from '@a
 import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NgxPaginationModule } from 'ngx-pagination';
+import { MatInputModule } from '@angular/material/input'
 
 import { AppComponent } from './app.component';
 import { ItemContainerComponent } from './components/item-container/item-container.component';
@@ -48,7 +49,8 @@ import { FilterPipe } from './pipe/filter.pipe';
     MatListModule,
     MatTreeModule,
     NgxPaginationModule,
-    MatProgressSpinnerModule
+    MatProgressSpinnerModule,
+    MatInputModule
   ],
   providers: [
     ItemService,

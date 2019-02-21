@@ -1,7 +1,7 @@
 import { Component, Input, Output, EventEmitter } from '@angular/core';
 
-import { Item } from '../../models/item.model';
-import { ItemService } from '../../item.service';
+import { Item } from '../../../models/item.model';
+import { ItemService } from '../../../item.service';
 import { AddProductsService } from 'src/app/service/addProducts.service';
 
 @Component({

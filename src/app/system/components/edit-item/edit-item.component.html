@@ -20,14 +20,14 @@
     <div class="form-group" fxLayout="row" fxLayoutAlign="center">
         <label for="name">Наименование</label>
         <div fxLayout="column">
-            <mat-form-field class="example-full-width">
+            <mat-form-field>
                 <input 
                     matInput 
-                    [class.danger]="isControlInvalid('name')"              
                     type="text"
+                    [class.danger]="isControlInvalid('name')"
                     id="name"
                     placeholder="Введите название"
-                    formControlName="name"
+                    formControlName="name" 
                     [ngModel]="item.name"
                     ngModel
                 >
@@ -44,12 +44,11 @@
     <div class="form-group" fxLayout="row" fxLayoutAlign="center">
         <label for="price">Цена</label>
         <div fxLayout="column">
-            <mat-form-field class="example-full-width">
+            <mat-form-field>
                 <input 
                     matInput 
                     [class.danger]="isControlInvalid('price')"
                     type="number"
-                    id="price"
                     placeholder="Введите наименование"
                     formControlName="price"
                     min=1
@@ -77,7 +76,7 @@
     <div class="form-group" fxLayout="row" fxLayoutAlign="center">
         <label for="count">Количество</label>
         <div fxLayout="column">
-            <mat-form-field class="example-full-width">
+            <mat-form-field>
                     <input 
                         matInput 
                         [class.danger]="isControlInvalid('count')"
@@ -124,6 +123,7 @@
         <zdsBtn 
             text="Отмена"
             typeValue="button"
+            className="btn-reset"
             (click)="clearForm()" 
         >
         </zdsBtn>

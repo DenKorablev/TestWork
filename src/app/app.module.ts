@@ -12,16 +12,20 @@ import { NgxPaginationModule } from 'ngx-pagination';
 import { MatInputModule } from '@angular/material/input'
 
 import { AppComponent } from './app.component';
-import { ItemContainerComponent } from './components/item-container/item-container.component';
-import { EditItemComponent } from './components/edit-item/edit-item.component';
+import { ItemContainerComponent } from './system/components/item-container/item-container.component';
+import { EditItemComponent } from './system/components/edit-item/edit-item.component';
 import { ItemService } from './item.service';
-import { SidebarComponent } from './components/sidebar/sidebar.component';
+import { SidebarComponent } from './system/components/sidebar/sidebar.component';
 import { AddProductsService } from './service/addProducts.service';
 import { ResizeDirective } from './directive/resize.directive';
 import { AppRoutingModule } from './route/app-routing.module';
 import { BtnDirective } from './directive/btn.directive';
 import { PaginationDirective } from './directive/pagination.directive';
 import { FilterPipe } from './pipe/filter.pipe';
+import { NotFoundComponent } from './system/components/not-found/not-found.component';
+import { SystemComponent } from './system/system.component';
+import { ModalComponent } from './system/components/modal/modal.component';
+import { InputComponent } from './base/input/input.component';
 
 @NgModule({
   declarations: [
@@ -32,7 +36,11 @@ import { FilterPipe } from './pipe/filter.pipe';
     ResizeDirective,
     BtnDirective,
     PaginationDirective,
-    FilterPipe
+    FilterPipe,
+    NotFoundComponent,
+    SystemComponent,
+    ModalComponent,
+    InputComponent
   ],
   imports: [
     AppRoutingModule,

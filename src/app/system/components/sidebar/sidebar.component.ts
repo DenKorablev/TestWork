@@ -2,7 +2,7 @@ import {NestedTreeControl} from '@angular/cdk/tree';
 import {Component, Output} from '@angular/core';
 import {MatTreeNestedDataSource} from '@angular/material/tree';
 import { EventEmitter } from '@angular/core';
-import { AddProductsService } from '../../service/addProducts.service';
+import { AddProductsService } from '../../../service/addProducts.service';
 
 interface FoodNode {
   name: string;

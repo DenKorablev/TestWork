@@ -8,13 +8,14 @@ export class BtnDirective implements OnInit, DoCheck {
   @Input() text: string;
   @Input() typeValue: string;
   @Input() disable: string;
-  elem: HTMLButtonElement = this.renderer.createElement('button');
-
+  @Input() className: string = 'btn-reset';
   constructor(private elementRef: ElementRef, private renderer: Renderer2) { }
 
+  elem: HTMLButtonElement = this.renderer.createElement('button');
   ngOnInit() {
     this.renderer.appendChild(this.elementRef.nativeElement, this.elem);
     this.elem.setAttribute('type', this.typeValue);
+    this.elem.setAttribute('class', this.className);
     if (this.disable !== undefined || this.disable !== 'true') {
       this.elem.setAttribute('disabled', '');
     }

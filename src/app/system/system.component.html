@@ -1,0 +1,44 @@
+<header fxLayout="row">
+    <div 
+        zdsPagination
+        class="nav-btn" 
+        [class.open]="this.isSidebarOpen"
+        (click)="sidebarOpen()"
+        >
+        <span></span>
+        <span></span>
+        <span></span>
+    </div>
+    <div class="header-title">Интернет магазин</div>
+    <a class="modal-info"></a>
+</header>
+<section zds-resizeWindow fxLayout="row">
+    <mat-spinner
+        *ngIf="!this.isLoaded"
+        class="spinner"
+        diameter=50
+    >
+    </mat-spinner>
+    <zds-sidebar
+        [@changeSizeSidebar]="currentState"  
+        class="sidebar"      
+        [class.open]="this.isSidebarOpen"
+        (selectedCategory)="changeCategoryItems($event)"
+    >
+    </zds-sidebar>
+    <zds-item-container 
+        fxFlex="100"
+        [items]="items" 
+        (isAdd)="isAddedProducts($event)" 
+        (editItem)="editProduct($event)"
+        (onPhotoUrl)="newPhotoUrl($event)"
+    >
+    </zds-item-container>
+    <zds-edit-item 
+        [item]="editItem" 
+        [isAddedProduct]="isAddedProduct" 
+        (onItemAdd)="newItemAdded($event)"
+        (onItemEdit)="itemWasEdited($event)"
+    >
+    </zds-edit-item>
+</section>

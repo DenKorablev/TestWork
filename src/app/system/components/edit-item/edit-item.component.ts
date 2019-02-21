@@ -1,8 +1,8 @@
 import { Component, OnInit, Output, EventEmitter, Input, DoCheck } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 
-import { ItemService } from '../../item.service';
-import { Item } from '../../models/item.model';
+import { ItemService } from '../../../item.service';
+import { Item } from '../../../models/item.model';
 import { AddProductsService } from 'src/app/service/addProducts.service';
 
 @Component({
@@ -21,6 +21,7 @@ export class EditItemComponent implements OnInit {
   @Output() onItemAdd = new EventEmitter<Item>();
   // tslint:disable-next-line:no-output-on-prefix
   @Output() onItemEdit = new EventEmitter<Item>();
+  @Output() formValue = new EventEmitter<any>();
 
   constructor(
     private itemService: ItemService,
@@ -43,6 +44,7 @@ export class EditItemComponent implements OnInit {
       'price': new FormControl(null, [Validators.required, Validators.min(0)]),
       'count': new FormControl(null, [Validators.required, Validators.min(0)])
     });
+    this.formValue.emit(this.form);
   }
 
   onFileSelected(event) {
@@ -101,5 +103,8 @@ export class EditItemComponent implements OnInit {
   clearForm() {
     this.form.reset();
     this.addProductService.photoUrl = '/assets/images/not-img.jpg';
+  }
+  isFormValue($event: Event) {
+
   }
 }

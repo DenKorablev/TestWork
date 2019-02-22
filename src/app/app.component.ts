@@ -1,4 +1,4 @@
-import { Component, HostListener} from '@angular/core';
+import { Component } from '@angular/core';
 import { SharedService } from './service/shared.service';
 
 @Component({
@@ -11,7 +11,6 @@ export class AppComponent {
   constructor(private sharedService: SharedService) {}
 
   closePopup() {
-    debugger;
     this.sharedService.openProfile = false  ;
   }
 }

@@ -4,6 +4,7 @@ import { trigger, state, style, animate, transition } from '@angular/animations'
 import { Item } from '../models/item.model';
 import { ItemService } from '../item.service';
 import { AddProductsService } from '../service/addProducts.service';
+import { SharedService } from '../service/shared.service';
 
 @Component({
   selector: 'zds-system',
@@ -35,7 +36,8 @@ export class SystemComponent implements OnInit {
 
   constructor(
     private itemService: ItemService,
-    private addProductService: AddProductsService
+    private addProductService: AddProductsService,
+    public sharedService: SharedService
     ) { }
 
   ngOnInit() {
@@ -89,5 +91,9 @@ export class SystemComponent implements OnInit {
   sidebarOpen(): void {
     this.currentState = this.currentState === 'initial' ? 'final' : 'initial';
     this.isSidebarOpen = !this.isSidebarOpen;
+  }
+
+  openProfileModal() {
+    this.sharedService.openProfile = !this.sharedService.openProfile;
   }
 }

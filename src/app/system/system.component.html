@@ -10,7 +10,7 @@
         <span></span>
     </div>
     <div class="header-title">Интернет магазин</div>
-    <a class="modal-info"></a>
+    <a class="modal-info" (click)="openProfileModal()"></a>
 </header>
 <section zds-resizeWindow fxLayout="row">
     <mat-spinner
@@ -42,3 +42,4 @@
     >
     </zds-edit-item>
 </section>
+<zds-modal class="popup-modal" *ngIf="this.sharedService.openProfile"></zds-modal>

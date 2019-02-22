@@ -1,8 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
-import { Item } from 'src/app/models/item.model';
-import { FormGroup } from '@angular/forms';
-import { ItemService } from 'src/app/item.service';
-import {FormControl, Validators} from '@angular/forms';
+import { Component } from '@angular/core';
 
 @Component({
   selector: 'zds-input',
@@ -10,8 +6,5 @@ import {FormControl, Validators} from '@angular/forms';
   styleUrls: ['./input.component.less']
 })
 export class InputComponent {
-  emailFormControl = new FormControl('', [
-    Validators.required,
-    Validators.email,
-  ]);
+
 }

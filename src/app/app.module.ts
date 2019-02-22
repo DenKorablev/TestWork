@@ -26,6 +26,7 @@ import { NotFoundComponent } from './system/components/not-found/not-found.compo
 import { SystemComponent } from './system/system.component';
 import { ModalComponent } from './system/components/modal/modal.component';
 import { InputComponent } from './base/input/input.component';
+import { SharedService } from './service/shared.service';
 
 @NgModule({
   declarations: [
@@ -62,7 +63,8 @@ import { InputComponent } from './base/input/input.component';
   ],
   providers: [
     ItemService,
-    AddProductsService
+    AddProductsService,
+    SharedService
   ],
   bootstrap: [
     AppComponent

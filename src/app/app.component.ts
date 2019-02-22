@@ -1,4 +1,5 @@
-import { Component, OnInit} from '@angular/core';
+import { Component, HostListener} from '@angular/core';
+import { SharedService } from './service/shared.service';
 
 @Component({
   selector: 'zds-root',
@@ -6,4 +7,10 @@ import { Component, OnInit} from '@angular/core';
   styleUrls: ['./app.component.less']
 })
 
-export class AppComponent {}
+export class AppComponent {
+  constructor(private sharedService: SharedService) {}
+
+  @HostListener('body:keydown.esc') closePopup() {
+    this.sharedService.openProfile = false
+  }
+}

@@ -1,8 +1,15 @@
-<div id="openModal" class="modalDialog">
-    <div>
-        <a href="#close" title="Закрыть" class="close">X</a>
-        <h2>Модальное окно</h2>
-        <p>Пример простого модального окна, которое может быть создано с использованием CSS3.</p>
-        <p>Его можно использовать в широком диапазоне, начиная от вывода сообщений и заканчивая формой регистрации.</p>
-    </div>
+
+<div class="modal_header">Профиль пользователя</div>
+<a 
+    (click)="closeProfileModal()" 
+    title="Закрыть" 
+    class="close"
+    >
+    X
+</a>
+<div class="modal_content">
+    <p>Пример простого модального окна, которое может быть создано с использованием CSS3.</p>
+    <p>Его можно использовать в широком диапазоне, начиная от вывода сообщений и заканчивая формой регистрации.</p>
+    <zds-input class="modal_content-input"></zds-input>
+    <zds-input class="modal_content-input"></zds-input>
 </div>

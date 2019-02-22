@@ -1,15 +1,16 @@
 import { Component, OnInit } from '@angular/core';
+import { SharedService } from 'src/app/service/shared.service';
 
 @Component({
   selector: 'zds-modal',
   templateUrl: './modal.component.html',
   styleUrls: ['./modal.component.less']
 })
-export class ModalComponent implements OnInit {
+export class ModalComponent {
 
-  constructor() { }
+  constructor(public sharedService: SharedService) { }
 
-  ngOnInit() {
+  closeProfileModal() {
+    this.sharedService.openProfile = !this.sharedService.openProfile;
   }
-
 }

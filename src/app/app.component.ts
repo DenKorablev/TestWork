@@ -10,7 +10,8 @@ import { SharedService } from './service/shared.service';
 export class AppComponent {
   constructor(private sharedService: SharedService) {}
 
-  @HostListener('body:keydown.esc') closePopup() {
-    this.sharedService.openProfile = false
+  closePopup() {
+    debugger;
+    this.sharedService.openProfile = false  ;
   }
 }

@@ -1,4 +1,9 @@
 <router-outlet>
-    <div class="wrapper" [class.overlay]="this.sharedService.openProfile"></div>
+    <div 
+        *ngIf="this.sharedService.openProfile"
+        class="overlay"
+        (click)="closePopup()"
+        (body:keydown.esc)="closePopup()"
+    ></div>
 </router-outlet>
 

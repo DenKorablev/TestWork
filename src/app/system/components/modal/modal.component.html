@@ -9,6 +9,16 @@
 <div class="modal_content">
     <p>Пример простого модального окна, которое может быть создано с использованием CSS3.</p>
     <p>Его можно использовать в широком диапазоне, начиная от вывода сообщений и заканчивая формой регистрации.</p>
-    <zds-input class="modal_content-input"></zds-input>
-    <zds-input class="modal_content-input"></zds-input>
+    <zds-input 
+        [customPlaceholder]="'Введите имя'" 
+        class="modal_content-input"
+        [fieldId]="'name'"
+        >
+    </zds-input>
+    <zds-input 
+        [customPlaceholder]="'Введите фамилию'" 
+        class="modal_content-input"
+        [fieldId]="'surname'"
+        >
+    </zds-input>
 </div>

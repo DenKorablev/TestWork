@@ -1,10 +1,15 @@
-import { Component } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 
 @Component({
   selector: 'zds-input',
   templateUrl: './input.component.html',
   styleUrls: ['./input.component.less']
 })
-export class InputComponent {
 
+export class InputComponent implements OnInit {
+  @Input() customPlaceholder: string;
+  @Input() fieldId: string;
+
+  ngOnInit() {
+  }
 }

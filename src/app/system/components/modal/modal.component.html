@@ -14,18 +14,18 @@
         (matField)="onNameChanged($event)"
         class="modal_content-input"
         customPlaceholder="Введите имя" 
-        [customValue]="this.profileService.user_name"
+        [customValue]="user_name"
         >
     </zds-input>
     <zds-input 
         (matField)="onSurnameChanged($event)"
         class="modal_content-input" 
         customPlaceholder="Введите фамилию" 
-        [customValue]="this.profileService.user_surname"
+        [customValue]="user_surname"
         >
     </zds-input>
     <div class="modal_btn">
-            <zdsBtn 
+        <zdsBtn 
             class="modal_btn-success"
             text="Принять"
             typeValue="submit"
@@ -36,7 +36,7 @@
             class="modal_btn-cancel"
             text="Отмена"
             typeValue="submit"
-            (click)="closeProfileModal()"
+            (click)="returnPreviousValue()"
         >
         </zdsBtn>
     </div>

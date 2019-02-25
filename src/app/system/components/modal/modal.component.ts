@@ -20,6 +20,11 @@ export class ModalComponent {
     this.sharedService.openProfile = !this.sharedService.openProfile;
   }
 
+  returnPreviousValue(): void {
+    this.user_name = this.profileService.user_name;
+    this.user_surname= this.profileService.user_surname;
+  }
+
   onNameChanged(name: string): void {
     this.user_name = name;
   }

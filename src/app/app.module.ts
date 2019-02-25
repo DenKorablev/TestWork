@@ -27,6 +27,7 @@ import { SystemComponent } from './system/system.component';
 import { ModalComponent } from './system/components/modal/modal.component';
 import { InputComponent } from './base/input/input.component';
 import { SharedService } from './service/shared.service';
+import { ProfileService } from './service/profile.service';
 
 @NgModule({
   declarations: [
@@ -64,7 +65,8 @@ import { SharedService } from './service/shared.service';
   providers: [
     ItemService,
     AddProductsService,
-    SharedService
+    SharedService,
+    ProfileService
   ],
   bootstrap: [
     AppComponent

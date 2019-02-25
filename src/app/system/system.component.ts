@@ -5,6 +5,7 @@ import { Item } from '../models/item.model';
 import { ItemService } from '../item.service';
 import { AddProductsService } from '../service/addProducts.service';
 import { SharedService } from '../service/shared.service';
+import { ProfileService } from '../service/profile.service';
 
 @Component({
   selector: 'zds-system',
@@ -37,13 +38,13 @@ export class SystemComponent implements OnInit {
   constructor(
     private itemService: ItemService,
     private addProductService: AddProductsService,
-    public sharedService: SharedService
+    public sharedService: SharedService,
+    private profileService: ProfileService
     ) { }
 
   ngOnInit() {
     this.getItemsCategory();
   }
-
 
   getItemsCategory(): void {
     const selectCategory = this.addProductService.selectedCategory;
@@ -93,7 +94,11 @@ export class SystemComponent implements OnInit {
     this.isSidebarOpen = !this.isSidebarOpen;
   }
 
-  openProfileModal() {
+  openProfileModal(): void {
     this.sharedService.openProfile = !this.sharedService.openProfile;
+  }
+  
+  closePopup(): void {
+    this.sharedService.openProfile = false;
   }
 }

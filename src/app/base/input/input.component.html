@@ -2,8 +2,9 @@
   <input 
       matInput 
       type="text"
-      id={{fieldId}}
       placeholder={{customPlaceholder}}
-      ngModel
+      [(ngModel)]="customValue"
+      (blur)="changeData()"
   >
+  <a class="mat-input-clear" *ngIf="customValue" (click)="customValue=''"></a>
 </mat-form-field>

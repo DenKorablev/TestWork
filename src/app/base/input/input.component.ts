@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input,  Output, EventEmitter  } from '@angular/core';
 
 @Component({
   selector: 'zds-input',
@@ -6,10 +6,12 @@ import { Component, Input, OnInit } from '@angular/core';
   styleUrls: ['./input.component.less']
 })
 
-export class InputComponent implements OnInit {
+export class InputComponent {
   @Input() customPlaceholder: string;
-  @Input() fieldId: string;
+  @Input() customValue: string;
+  @Output() matField = new EventEmitter();
 
-  ngOnInit() {
+  changeData() {
+    this.matField.emit(this.customValue);
   }
 }

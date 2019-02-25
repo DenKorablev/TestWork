@@ -10,7 +10,10 @@
         <span></span>
     </div>
     <div class="header-title">Интернет магазин</div>
-    <a class="modal-info" (click)="openProfileModal()"></a>
+    <div class="header-right-content">
+        <span>{{this.profileService.user_name}} {{this.profileService.user_surname}}</span>
+        <div class="modal-info" (click)="openProfileModal()"></div>
+    </div>
 </header>
 <section zds-resizeWindow fxLayout="row">
     <mat-spinner
@@ -43,3 +46,9 @@
     </zds-edit-item>
 </section>
 <zds-modal class="popup-modal" *ngIf="this.sharedService.openProfile"></zds-modal>
+<div 
+    *ngIf="this.sharedService.openProfile"
+    class="overlay"
+    (click)="closePopup()"
+    (body:keydown.esc)="closePopup()"
+></div>

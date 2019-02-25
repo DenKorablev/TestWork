@@ -47,7 +47,7 @@ export class EditItemComponent implements OnInit {
     this.formValue.emit(this.form);
   }
 
-  onFileSelected(event) {
+  onFileSelected(event): void {
     this.selectedFile = <File>event.target.files;
     const reader = new FileReader();
     reader.onload = (event: any) => {
@@ -57,7 +57,7 @@ export class EditItemComponent implements OnInit {
     this.uploadFile();
   }
 
-  uploadFile() {
+  uploadFile(): void {
     const formData: any = new FormData();
     formData.append('uploads', this.selectedFile[0], this.selectedFile[0].name);
     this.addProductService.photoUrl = 'assets//images//' + this.selectedFile[0].name;
@@ -100,11 +100,8 @@ export class EditItemComponent implements OnInit {
     }
   }
 
-  clearForm() {
+  clearForm(): void {
     this.form.reset();
     this.addProductService.photoUrl = '/assets/images/not-img.jpg';
-  }
-  isFormValue($event: Event) {
-
   }
 }

@@ -7,18 +7,37 @@
 >
 </a>
 <div class="modal_content">
-    <p>Пример простого модального окна, которое может быть создано с использованием CSS3.</p>
-    <p>Его можно использовать в широком диапазоне, начиная от вывода сообщений и заканчивая формой регистрации.</p>
+    <div class="modal_content-text">
+        <p>Для отображения имени пользователя. Введите имя и фамилию.</p>
+    </div>
     <zds-input 
-        [customPlaceholder]="'Введите имя'" 
+        (matField)="onNameChanged($event)"
         class="modal_content-input"
-        [fieldId]="'name'"
+        customPlaceholder="Введите имя" 
+        [customValue]="this.profileService.user_name"
         >
     </zds-input>
     <zds-input 
-        [customPlaceholder]="'Введите фамилию'" 
-        class="modal_content-input"
-        [fieldId]="'surname'"
+        (matField)="onSurnameChanged($event)"
+        class="modal_content-input" 
+        customPlaceholder="Введите фамилию" 
+        [customValue]="this.profileService.user_surname"
         >
     </zds-input>
+    <div class="modal_btn">
+            <zdsBtn 
+            class="modal_btn-success"
+            text="Принять"
+            typeValue="submit"
+            (click)="onChangedProfile()"
+        >
+        </zdsBtn>
+        <zdsBtn 
+            class="modal_btn-cancel"
+            text="Отмена"
+            typeValue="submit"
+            (click)="closeProfileModal()"
+        >
+        </zdsBtn>
+    </div>
 </div>

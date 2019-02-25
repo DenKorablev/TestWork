@@ -1,0 +1,33 @@
+.mat-input-clear {
+    cursor: pointer;
+	position: absolute;
+	right: 0px;
+	top: 7px;
+	width: 24px;
+	height: 24px;
+	-webkit-border-radius: 12px;
+	-moz-border-radius: 12px;
+	border-radius: 12px;
+
+	&:before, &:after {
+		position: absolute;
+		content: '';
+		left: 12px;
+		top: 2px;
+		height: 12px;
+		width: 1px;
+		background-color: gray;
+	}
+	&:before {
+		transform: rotate(45deg);
+	}
+	&:after {
+		transform: rotate(-45deg);
+    }
+    
+    &:hover {
+        &:before, &:after {
+            background-color: black;
+        }     
+    }
+}

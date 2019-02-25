@@ -56,7 +56,7 @@ export class SidebarComponent {
     private addProductsService: AddProductsService
     ) { this.dataSource.data = TREE_DATA; }
 
-  changeCategory(category: string) {
+  changeCategory(category: string): void {
     this.selectCategory = category;
     this.selectedCategory.emit(category);
   }

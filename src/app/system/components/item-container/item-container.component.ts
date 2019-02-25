@@ -21,19 +21,19 @@ export class ItemContainerComponent {
     private itemService: ItemService,
     private addProductsService: AddProductsService) { }
 
-  addProduct() {
+  addProduct(): void {
     this.formContent = this.addProductsService.addProd();
     this.isAdd.emit(this.formContent);
   }
 
-  editProduct(item: Item) {
+  editProduct(item: Item): void {
     this.formContent = this.addProductsService.editProd();
     this.isAdd.emit(this.formContent);
     this.editItem.emit(item);
     this.onPhotoUrl.emit(item.photo);
   } 
 
-  deleteItem(item: Item) {
+  deleteItem(item: Item): void {
     this.itemService.removeItem(item)
     .subscribe(() => {
       let product = this.items.find(p => p.id === item.id);

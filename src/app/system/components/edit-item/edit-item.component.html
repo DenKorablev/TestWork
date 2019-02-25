@@ -77,17 +77,17 @@
         <label for="count">Количество</label>
         <div fxLayout="column">
             <mat-form-field>
-                    <input 
-                        matInput 
-                        [class.danger]="isControlInvalid('count')"
-                        type="number"
-                        id="count"
-                        placeholder="Введите количество"
-                        formControlName="count"
-                        [ngModel]="item.count"
-                        ngModel
-                    >
-                </mat-form-field>
+                <input 
+                    matInput 
+                    [class.danger]="isControlInvalid('count')"
+                    type="number"
+                    id="count"
+                    placeholder="Введите количество"
+                    formControlName="count"
+                    [ngModel]="item.count"
+                    ngModel
+                >
+            </mat-form-field>
             <span 
                 class="error-message"
                 *ngIf="isControlInvalid('count')"

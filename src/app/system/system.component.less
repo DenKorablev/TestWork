@@ -20,7 +20,7 @@ header {
 }
 
 .header {
-    &-title {
+    &_title {
         font-size: 20px;
         font-weight: 700;
         padding: 6px;
@@ -32,10 +32,11 @@ header {
         border-radius: 20px;
     }
 
-    &-right-content {
+    &_right-content {
         display: flex;
         flex-direction: row;
         justify-content: flex-end;
+        border-left: 3px solid #fff;
         
         .modal-info {
             width: 40px;
@@ -50,7 +51,7 @@ header {
             }
         }
     
-        span {
+        .right-content_user-name {
             color: white;
             padding: 15px;
         }
@@ -69,6 +70,7 @@ header {
     width: 50px;
     min-height: 30px;
     height: auto;
+    border-right: 3px solid #fff;
     cursor: pointer;
 
     span {
@@ -114,16 +116,5 @@ header {
     bottom: 0;
     right: 0;
     stroke: #33ccee;
-}
-
-.popup-modal {
-	display: block;
-	position: absolute;
-	top: 40%;
-    left: 40%;
-    width: 500px;
-    background: white;
-    border: 1px solid lightgray;
-    z-index: 5;
 }
 

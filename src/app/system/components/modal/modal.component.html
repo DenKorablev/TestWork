@@ -1,43 +1,50 @@
 
-<div class="modal_header">Профиль пользователя</div>
-<a 
-    (click)="closeProfileModal()" 
-    title="Закрыть" 
-    class="close"
->
-</a>
-<div class="modal_content">
-    <div class="modal_content-text">
-        <p>Для отображения имени пользователя. Введите имя и фамилию.</p>
+<div cdkDrag class="popup-modal">
+    <div 
+        cdkDragHandle 
+        class="modal_header"
+    >
+        Профиль пользователя
     </div>
-    <zds-input 
-        (matField)="onNameChanged($event)"
-        class="modal_content-input"
-        customPlaceholder="Введите имя" 
-        [customValue]="user_name"
-        >
-    </zds-input>
-    <zds-input 
-        (matField)="onSurnameChanged($event)"
-        class="modal_content-input" 
-        customPlaceholder="Введите фамилию" 
-        [customValue]="user_surname"
-        >
-    </zds-input>
-    <div class="modal_btn">
-        <zdsBtn 
-            class="modal_btn-success"
-            text="Принять"
-            typeValue="submit"
-            (click)="onChangedProfile()"
-        >
-        </zdsBtn>
-        <zdsBtn 
-            class="modal_btn-cancel"
-            text="Отмена"
-            typeValue="submit"
-            (click)="returnPreviousValue()"
-        >
-        </zdsBtn>
+    <a 
+        (click)="closeProfileModal()" 
+        title="Закрыть" 
+        class="close"
+    >
+    </a>
+    <div class="modal_content">
+        <div class="modal_content-text">
+            <p>Для отображения имени пользователя. Введите имя и фамилию.</p>
+        </div>
+        <zds-input 
+            (matField)="onNameChanged($event)"
+            class="modal_content-input"
+            customPlaceholder="Введите имя" 
+            [customValue]="user_name"
+            >
+        </zds-input>
+        <zds-input 
+            (matField)="onSurnameChanged($event)"
+            class="modal_content-input" 
+            customPlaceholder="Введите фамилию" 
+            [customValue]="user_surname"
+            >
+        </zds-input>
+        <div class="modal_btn">
+            <zdsBtn 
+                class="modal_btn-success"
+                text="Принять"
+                typeValue="submit"
+                (click)="onChangedProfile()"
+            >
+            </zdsBtn>
+            <zdsBtn 
+                class="modal_btn-cancel"
+                text="Отмена"
+                typeValue="submit"
+                (click)="returnPreviousValue()"
+            >
+            </zdsBtn>
+        </div>
     </div>
 </div>

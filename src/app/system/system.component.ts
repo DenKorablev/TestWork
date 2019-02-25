@@ -101,4 +101,11 @@ export class SystemComponent implements OnInit {
   closePopup(): void {
     this.sharedService.openProfile = false;
   }
+
+  onAddDataUser(): string {
+    return this.profileService.user_name != null || 
+      this.profileService.user_name != null 
+      ? 'right-content_user-name' 
+      : '';
+  }
 }

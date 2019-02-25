@@ -10,6 +10,7 @@ import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NgxPaginationModule } from 'ngx-pagination';
 import { MatInputModule } from '@angular/material/input'
+import {DragDropModule} from '@angular/cdk/drag-drop';
 
 import { AppComponent } from './app.component';
 import { ItemContainerComponent } from './system/components/item-container/item-container.component';
@@ -60,7 +61,8 @@ import { ProfileService } from './service/profile.service';
     MatTreeModule,
     NgxPaginationModule,
     MatProgressSpinnerModule,
-    MatInputModule
+    MatInputModule,
+    DragDropModule
   ],
   providers: [
     ItemService,

@@ -103,8 +103,9 @@ export class SystemComponent implements OnInit {
   }
 
   onAddDataUser(): string {
-    return this.profileService.user_name != null || 
-      this.profileService.user_name != null 
+    console.log(this.profileService.user_name);
+    return this.profileService.user_name != "" || 
+      this.profileService.user_name != "" 
       ? 'right-content_user-name' 
       : '';
   }

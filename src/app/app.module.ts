@@ -29,6 +29,7 @@ import { ModalComponent } from './system/components/modal/modal.component';
 import { InputComponent } from './base/input/input.component';
 import { SharedService } from './service/shared.service';
 import { ProfileService } from './service/profile.service';
+import { TolltipNameDirective } from './directive/tolltip-name.directive';
 
 @NgModule({
   declarations: [
@@ -43,7 +44,8 @@ import { ProfileService } from './service/profile.service';
     NotFoundComponent,
     SystemComponent,
     ModalComponent,
-    InputComponent
+    InputComponent,
+    TolltipNameDirective
   ],
   imports: [
     AppRoutingModule,

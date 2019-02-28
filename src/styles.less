@@ -32,7 +32,7 @@ button {
     margin: 10px 20px;
     text-align: center;
     text-shadow: 0 -1px 0 #07bede;
-    width: 120px;  
+    width: 7vw;  
     outline: none;
     font-family: Georgia, Times, "Times New Roman", serif;
     &:hover {
@@ -66,4 +66,22 @@ button[disabled] {
 
 .btn-danger {
     background: red;
+}
+
+.tolltip-name {
+    position: absolute;
+    color: white;
+    top: 40px;
+    padding: 10px;
+    background-color: #3ce;  
+    z-index: 10;
+    border-radius: 4px;
+    &:before {
+        content: "";
+        position: absolute;
+        border-style: solid;
+        border-width: 12px;
+        bottom: 35px;
+        border-color: transparent transparent #3ce transparent;
+    }
 }

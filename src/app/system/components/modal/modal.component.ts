@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { SharedService } from '../../../service/shared.service';
 import { ProfileService } from '../../../service/profile.service';
 
@@ -8,6 +8,8 @@ import { ProfileService } from '../../../service/profile.service';
   styleUrls: ['./modal.component.less']
 })
 export class ModalComponent {
+  
+  @Input() modalTitle: string;
   public user_name: string = this.profileService.user_name;
   public user_surname: string = this.profileService.user_surname;
 

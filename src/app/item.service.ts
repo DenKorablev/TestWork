@@ -7,6 +7,10 @@ import { Observable } from 'rxjs';
 export class ItemService {
     constructor(private http: HttpClient) {}
 
+    getCategory(): Observable<any> {
+        return this.http.get('http://localhost:3000/categories');
+    }
+
     getItem(): Observable<any> {
         return this.http.get('http://localhost:3000/products');
     }

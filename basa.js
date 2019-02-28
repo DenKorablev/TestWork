@@ -1,5 +1,45 @@
 module.exports = function () {     
-    return {          
+    return {      
+        categories: [] = [
+            {
+                name: 'Все товары', 
+                category: null
+            },
+            {
+                name: 'Одежда',
+                children: [
+                    {name: 'Зимняя', category: 'winterClothes'},
+                    {name: 'Летняя', category: 'summerClothes'}
+                ]
+            }, {
+                name: 'Спортивные товары',
+                children: [
+                    {
+                        name: 'Зима', 
+                        category: 'winter',
+                    },
+                    {
+                        name: 'Лето', 
+                        category: 'summer',
+                    },
+                    {
+                    name: 'Лето',
+                    children: [
+                        { 
+                            name: 'Мячи', 
+                            category: 'ball'
+                        },
+                        { 
+                            name: 'Велосипеды', 
+                            category: 'bike'},
+                    ]
+                    }, {
+                        name: 'Спортзал', 
+                        category: 'gym'
+                    }
+                ]
+                },
+            ],   
         products: [             
             { 
                 id: 1, 

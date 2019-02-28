@@ -13,6 +13,7 @@ export class TolltipNameDirective {
     this.elem = this.renderer.createElement('div');
     this.renderer.appendChild(this.elementRef.nativeElement, this.elem);
     this.elem.setAttribute('class', 'tolltip-name');
+    this.elem.setAttribute('style', `top: ${this.elementRef.nativeElement.offsetTop + 30}px`);
     this.elem.innerHTML = this.elementRef.nativeElement.innerText;
   }
 

@@ -29,8 +29,4 @@ export class PaginationDirective {
       this.addProductsService.itemsPer = 4;
     }
   }
-
-  public resizeContent(): void {
-    alert("23123");
-  }
 }

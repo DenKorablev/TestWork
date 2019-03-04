@@ -30,6 +30,7 @@
     "ngx-pagination": "^3.2.1",
     "rxjs": "~6.3.3",
     "tslib": "^1.9.0",
+    "user-component": "file:base-component/user-component-0.0.1.tgz",
     "zone.js": "~0.8.26"
   },
   "devDependencies": {

@@ -26,10 +26,10 @@ import { FilterPipe } from './pipe/filter.pipe';
 import { NotFoundComponent } from './system/components/not-found/not-found.component';
 import { SystemComponent } from './system/system.component';
 import { ModalComponent } from './system/components/modal/modal.component';
-import { InputComponent } from './base/input/input.component';
 import { SharedService } from './service/shared.service';
 import { ProfileService } from './service/profile.service';
 import { TolltipNameDirective } from './directive/tolltip-name.directive';
+import { UserComponentModule } from 'user-component';
 
 @NgModule({
   declarations: [
@@ -44,8 +44,7 @@ import { TolltipNameDirective } from './directive/tolltip-name.directive';
     NotFoundComponent,
     SystemComponent,
     ModalComponent,
-    InputComponent,
-    TolltipNameDirective
+    TolltipNameDirective 
   ],
   imports: [
     AppRoutingModule,
@@ -64,7 +63,8 @@ import { TolltipNameDirective } from './directive/tolltip-name.directive';
     NgxPaginationModule,
     MatProgressSpinnerModule,
     MatInputModule,
-    DragDropModule
+    DragDropModule,
+    UserComponentModule
   ],
   providers: [
     ItemService,

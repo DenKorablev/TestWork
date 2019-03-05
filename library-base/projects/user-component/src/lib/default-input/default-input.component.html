@@ -1,0 +1,10 @@
+<mat-form-field>
+  <input 
+      matInput 
+      type="text"
+      placeholder={{customPlaceholder}}
+      [(ngModel)]="customValue"
+      (blur)="changeData()"
+  >
+  <a class="mat-input-clear" *ngIf="customValue" (click)="customValue=''"></a>
+</mat-form-field>

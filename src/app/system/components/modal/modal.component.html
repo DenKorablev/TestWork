@@ -16,20 +16,20 @@
         <div class="modal_content-text">
             <p>Для отображения имени пользователя. Введите имя и фамилию.</p>
         </div>
-        <lib-mat-input
+        <lib-default-input
             (baseInputValue)="onNameChanged($event)"
             class="modal_content-input"
             customPlaceholder="Введите имя" 
             [customValue]="user_name"
         >
-        </lib-mat-input>
-        <lib-mat-input
+        </lib-default-input>
+        <lib-default-input
             (baseInputValue)="onSurnameChanged($event)"
             class="modal_content-input" 
             customPlaceholder="Введите фамилию" 
             [customValue]="user_surname"
         >
-        </lib-mat-input>
+        </lib-default-input>
         <div class="modal_btn">
             <zdsBtn 
                 class="modal_btn-success"

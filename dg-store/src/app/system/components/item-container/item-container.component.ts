@@ -3,6 +3,7 @@ import { Component, Input, Output, EventEmitter } from '@angular/core';
 import { Item } from '../../../models/item.model';
 import { ItemService } from '../../../item.service';
 import { AddProductsService } from 'src/app/service/addProducts.service';
+import { ThemeService } from 'src/app/service/theme.service';
 
 @Component({
   selector: 'zds-item-container',
@@ -19,7 +20,9 @@ export class ItemContainerComponent {
   
   constructor(
     private itemService: ItemService,
-    private addProductsService: AddProductsService) { }
+    private addProductsService: AddProductsService,
+    public themeService: ThemeService
+    ) { }
 
   addProduct(): void {
     this.formContent = this.addProductsService.addProd();

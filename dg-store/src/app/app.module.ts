@@ -30,6 +30,7 @@ import { SharedService } from './service/shared.service';
 import { ProfileService } from './service/profile.service';
 import { TolltipNameDirective } from './directive/tolltip-name.directive';
 import { UserComponentModule } from 'user-component';
+import { ThemeService } from './service/theme.service';
 
 @NgModule({
   declarations: [
@@ -70,7 +71,8 @@ import { UserComponentModule } from 'user-component';
     ItemService,
     AddProductsService,
     SharedService,
-    ProfileService
+    ProfileService,
+    ThemeService
   ],
   bootstrap: [
     AppComponent

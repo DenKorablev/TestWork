@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { trigger, state, style, animate, transition } from '@angular/animations';
 
 import { Item } from '../models/item.model';
@@ -6,6 +6,7 @@ import { ItemService } from '../item.service';
 import { AddProductsService } from '../service/addProducts.service';
 import { SharedService } from '../service/shared.service';
 import { ProfileService } from '../service/profile.service';
+import { ThemeService } from '../service/theme.service';
 
 @Component({
   selector: 'zds-system',
@@ -39,7 +40,8 @@ export class SystemComponent implements OnInit {
     private itemService: ItemService,
     private addProductService: AddProductsService,
     public sharedService: SharedService,
-    private profileService: ProfileService
+    private profileService: ProfileService,
+    public themeService: ThemeService
     ) { }
 
   ngOnInit() {
@@ -103,10 +105,13 @@ export class SystemComponent implements OnInit {
   }
 
   onAddDataUser(): string {
-    console.log(this.profileService.user_name);
     return this.profileService.user_name != "" || 
       this.profileService.user_name != "" 
       ? 'right-content_user-name' 
       : '';
+  }
+
+  toggleTheme(): boolean {
+    return this.themeService.onChangeTheme();
   }
 }

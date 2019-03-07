@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { ThemeService } from './service/theme.service';
 
 @Component({
   selector: 'zds-root',
@@ -6,4 +7,12 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.less']
 })
 
-export class AppComponent { }
+export class AppComponent {
+  constructor(
+    public themeService: ThemeService
+    ) { }
+
+    onChangeTheme(theme) {
+      this.themeService.changeTheme = theme;
+    }
+}

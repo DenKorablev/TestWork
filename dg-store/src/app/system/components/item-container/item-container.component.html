@@ -1,5 +1,11 @@
-<div class="panel-toolbar">
-  <a class="add-item" (click)="addProduct()">
+<div 
+  class="panel-toolbar"  
+  [ngClass]="this.themeService.changeTheme ? 'ligth_container-toolbar' : 'dark_container-toolbar'">
+  <a 
+    class="add-item" 
+    (click)="addProduct()"
+    [ngClass]="this.themeService.changeTheme ? 'ligth_btn' : 'dark_btn'"
+    >
       Добавить товар
   </a>
   <div class="filter-container">

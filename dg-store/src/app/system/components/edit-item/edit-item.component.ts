@@ -4,6 +4,7 @@ import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { ItemService } from '../../../item.service';
 import { Item } from '../../../models/item.model';
 import { AddProductsService } from 'src/app/service/addProducts.service';
+import { ThemeService } from 'src/app/service/theme.service';
 
 @Component({
   selector: 'zds-edit-item',
@@ -25,7 +26,8 @@ export class EditItemComponent implements OnInit {
 
   constructor(
     private itemService: ItemService,
-    public addProductService: AddProductsService
+    public addProductService: AddProductsService,
+    public themeService: ThemeService
     ) { }
 
   ngOnInit() {
@@ -86,7 +88,13 @@ export class EditItemComponent implements OnInit {
     this.itemService.createNewItem(item)
       .subscribe((item: Item) => {
         this.onItemAdd.emit(item);
-        this.form.reset();
+        this.item = {
+          name: ' ',
+          price: 0,
+          count: 0,
+          photo: '',
+          category: []
+        }
         this.addProductService.photoUrl = '/assets/images/not-img.jpg';
       });
     } else {

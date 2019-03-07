@@ -1,0 +1,100 @@
+@import "./mixin.less";
+
+@transparent: transparent;
+@white: #fff;
+@black: #000;
+@light-blue: #3ce;
+@blue: #07bede;
+@green: #8cc63e;
+@dark-green: #006644;
+@gray: #6c757d;
+@darken-gray: #303030;
+@border-gray: #c4d0d9;
+@orange: #ff5630;
+@red: #ff0000;
+
+.dark {
+    .theme(@white, @darken-gray);
+    &_btn {
+        .btn(@white, @black, @border-gray);
+        &:hover {
+            .btn(@white, @green, @border-gray);       
+        }
+    }
+    &_header {
+        .header(@black, @border-gray);
+        &-title {
+            .header-title(@white, @gray);        
+        }
+        &-burger {
+            .burger-menu(@white); 
+            &-bg {
+                .burger-menu-bg(@black); 
+                &:hover {
+                    background-color: @green;
+                    .ligth_header-burger {
+                        .burger-menu(@white);                 
+                    }
+                }
+                &.open {
+                    background-color: @green;
+                    .ligth_header-burger {
+                        .burger-menu(@white);                 
+                    }
+                }
+            }       
+        }
+        &-icon {
+            .header-icon(@black);
+            &:hover {
+                .header-icon(@green);
+            }
+        }
+    }
+    &_sidebar {
+        .sidebar(@black, @border-gray);
+    }
+    
+    &_container {
+        .container(@white, @darken-gray);
+        &-toolbar {
+            .panel-toolbar(@white, @transparent, @border-gray);
+        }
+    }
+
+    &_form {
+        .form(@white, @black, @border-gray);
+        &-edit-name {
+            .form-text(@green);
+        }
+        &-btn {
+            .btn(@white, @darken-gray, @border-gray);
+            &:not(:disabled):hover {
+                .btn(@white, @green, @transparent);        
+            }
+        }
+        &-label {
+            .form-text(@white);
+        }
+        &-input {
+            .input(white);
+            &-error {
+                .form-text(@red);
+            }
+        }
+    }
+}
+
+.dark_form {
+    .mat-form-field-label {
+        color: @green!important;
+    }
+    .mat-form-field-invalid .mat-form-field-ripple, 
+    .mat-form-field-invalid .mat-form-field-ripple .mat-accent {
+        background-color: @red!important;
+    } 
+    .mat-form-field-wrapper .mat-form-field-ripple, 
+    .mat-form-field-wrapper .mat-form-field-ripple .mat-accent {
+        background-color: @green;
+    } 
+}

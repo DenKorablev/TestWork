@@ -28,5 +28,6 @@ export class BtnDirective implements OnInit, DoCheck {
     } else {
       this.elem.removeAttribute('disabled');
     }
+    this.elem.setAttribute('class', this.className);
   }
 }

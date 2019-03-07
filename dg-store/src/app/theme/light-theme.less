@@ -22,7 +22,8 @@
         }
     }
     &_header {
-        .header(@light-blue, @border-gray);
+        .header(@light-blue);
+        .border(@border-gray);
         &-title {
             .header-title(@black, @white);        
         }
@@ -53,12 +54,31 @@
     }
     &_sidebar {
         .sidebar(@white, @transparent);
+        &-element {
+            .sidebar-element(@black, @white);
+            &:hover {
+                .sidebar-element(@white, @light-blue);
+            }
+        }
     }
 
     &_container {
         .container(@black, @transparent);
         &-toolbar {
-            .panel-toolbar(@black, @transparent, @border-gray);
+            .panel-toolbar(@black, @transparent);
+            .border-bottom(@border-gray)
+        }
+        &-item {
+            &-bg {
+                .store-item-bg(@light-blue);
+            }
+            &-text {
+                .store-item-text(@white);
+            }
+            &-border {
+                .border(@light-blue);
+                .border-bottom(@white);
+            }        
         }
     }
 
@@ -85,6 +105,8 @@
     }
 }
 
+
+/*angular_material*/
 .ligth_form {
     .mat-form-field-label {
         color: black!important;

@@ -3,6 +3,7 @@ import {Component, Output} from '@angular/core';
 import {MatTreeNestedDataSource} from '@angular/material/tree';
 import { EventEmitter } from '@angular/core';
 import { AddProductsService } from '../../../service/addProducts.service';
+import { ThemeService } from 'src/app/service/theme.service';
 
 interface FoodNode {
   name: string;
@@ -52,8 +53,10 @@ export class SidebarComponent {
   dataSource = new MatTreeNestedDataSource<FoodNode>();
   @Output() selectedCategory = new EventEmitter<string>();
   selectCategory = this.addProductsService.selectedCategory;
+  
   constructor(
-    private addProductsService: AddProductsService
+    private addProductsService: AddProductsService,
+    public themeService: ThemeService
     ) { this.dataSource.data = TREE_DATA; }
 
   changeCategory(category: string): void {

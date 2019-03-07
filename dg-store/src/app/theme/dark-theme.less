@@ -22,7 +22,8 @@
         }
     }
     &_header {
-        .header(@black, @border-gray);
+        .header(@black);
+        .border(@border-gray);
         &-title {
             .header-title(@white, @gray);        
         }
@@ -53,12 +54,35 @@
     }
     &_sidebar {
         .sidebar(@black, @border-gray);
+        &-element {
+            .sidebar-element(@white, @black);
+            &:hover {
+                .sidebar-element(@white, @darken-gray);
+                .arrow-expand, 
+                .arrow-collapsed {
+                    border-color: wheat;     
+                }
+            }
+        }
     }
     
     &_container {
         .container(@white, @darken-gray);
         &-toolbar {
-            .panel-toolbar(@white, @transparent, @border-gray);
+            .panel-toolbar(@white, @transparent);
+            .border-bottom(@border-gray);
+        }
+        &-item {
+            &-bg {
+                .store-item-bg(@black);
+            }
+            &-text {
+                .store-item-text(@white);
+            }
+            &-border {
+                .border(@border-gray);
+                .border-bottom(@white);
+            }    
         }
     }
 
@@ -85,9 +109,13 @@
     }
 }
 
+/*angular_material*/
 .dark_form {
     .mat-form-field-label {
         color: @green!important;
+    }
+    .mat-form-field-invalid .mat-form-field-label {
+        color: @red!important;
     }
     .mat-form-field-invalid .mat-form-field-ripple, 
     .mat-form-field-invalid .mat-form-field-ripple .mat-accent {

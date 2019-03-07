@@ -17,6 +17,7 @@
   <div 
     *ngFor="let item of items | filter:this.searchProduct | paginate: { itemsPerPage:this.addProductsService.itemsPer, currentPage:p }"
     class="product-item"
+    [ngClass]="this.themeService.changeTheme ? 'ligth_container-item-border' : 'dark_container-item-border'"
   >
     <span 
       class="edit"
@@ -29,14 +30,24 @@
     >
     </span>
     <div fxLayout="column-reverse" class="image" [ngStyle]="{'backgroundImage': 'url('+ item.photo +')'}">
-    <div class="product-list">
-      <h3 zdsTolltipName>
+    <div 
+      class="product-list" 
+      [ngClass]="this.themeService.changeTheme ? 'ligth_container-item-bg' : 'dark_container-item-bg'">
+      <h3 
+        zdsTolltipName
+        [ngClass]="this.themeService.changeTheme ? 'ligth_container-item-text' : 'dark_container-item-text'">
         {{item.name}} 
       </h3>
-        <span class="price" zdsTolltipName>
+        <span 
+          class="price" 
+          zdsTolltipName
+          [ngClass]="this.themeService.changeTheme ? 'ligth_container-item-text' : 'dark_container-item-text'">
             ₽ {{item.price}}
         </span>
-        <span class="count" zdsTolltipName>
+        <span 
+          class="count" 
+          zdsTolltipName
+          [ngClass]="this.themeService.changeTheme ? 'ligth_container-item-text' : 'dark_container-item-text'">
             В наличие: {{item.count}} шт.
         </span>
     </div>

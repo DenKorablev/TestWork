@@ -86,9 +86,10 @@
                     [ngModel]="item.price"
                 >
             </mat-form-field>
-            <span 
-                class="error-message"
+            <span             
                 *ngIf="isControlInvalid('price')"
+                class="error-message"
+                [ngClass]="this.themeService.changeTheme ? 'ligth_form-input-error' : 'dark_form-input-error'"
             >
                 <span 
                     class="error-message-text" 
@@ -122,9 +123,10 @@
                     
                 >
             </mat-form-field>
-            <span 
-                class="error-message"
+            <span             
                 *ngIf="isControlInvalid('count')"
+                class="error-message"
+                [ngClass]="this.themeService.changeTheme ? 'ligth_form-input-error' : 'dark_form-input-error'"
             >
                 <span 
                     class="error-message-text" 

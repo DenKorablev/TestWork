@@ -9,9 +9,16 @@
     border: 1px solid @border;
 }
 
-.header(@bg, @border) {
-    background-color: @bg;
+.border(@border) {
     border: 1px solid @border;
+}
+
+.border-bottom(@border-bottom) {
+    border-bottom: 2px solid @border-bottom;
+}
+
+.header(@bg) {
+    background-color: @bg;
 }
 
 .header-title(@color, @bg) {
@@ -36,21 +43,25 @@
     border-right: 1px solid @border-right;
 }
 
+.sidebar-element(@color, @bg) {
+    color: @color; 
+    background-color: @bg;
+}
+
 .container(@color, @bg) {
     color: @color; 
     background-color: @bg;
 }
 
-.form(@color, @bg, @border) {
+.form(@color, @bg, @border-left) {
     color: @color; 
     background-color: @bg;
-    border-left: 1px solid @border;
+    border-left: 1px solid @border-left;
 }
 
-.panel-toolbar(@color, @bg, @border) {
+.panel-toolbar(@color, @bg) {
     color: @color;
     background-color: @bg;
-    border-bottom: 1px solid @border;
 }
 
 .form-text(@color) {
@@ -58,5 +69,13 @@
 };
 
 .input(@color) {
+    color: @color;
+}
+
+.store-item-bg(@bg) {
+    background-color: @bg;
+}
+
+.store-item-text(@color) {
     color: @color;
 }

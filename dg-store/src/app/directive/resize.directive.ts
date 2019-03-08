@@ -5,9 +5,9 @@ import { Directive, HostBinding, HostListener } from "@angular/core";
 })
 export class ResizeDirective {
     @HostBinding('style.height') height: string
-    = `${ window.innerHeight - 100 }px`;
+    = `${ window.innerHeight - 93 }px`;
 
     @HostListener('window:resize') onResize() {
-        this.height = `${ window.innerHeight - 100 }px`;
+        this.height = `${ window.innerHeight - 93 }px`;
     }
 }

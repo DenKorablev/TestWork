@@ -15,8 +15,8 @@ import { ThemeService } from '../service/theme.service';
   animations: [  
     trigger('changeSizeSidebar', [  
       state('initial', style({  
-        width: '50px',  
-        minWidth: '50px'
+        width: '40px',  
+        minWidth: '40px'
       })),  
       state('final', style({  
         width: '380px',

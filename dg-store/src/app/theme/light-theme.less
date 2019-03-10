@@ -1,4 +1,5 @@
 @import "./mixin.less";
+@import "../style/resource.less";
 
 @transparent: transparent;
 @white: #fff;
@@ -47,8 +48,11 @@
         }
         &-icon {
             .header-icon(@light-blue);  
+            background-size: 80%;
+            .profileIcon(e(%(@white)));
             &:hover {
                 .header-icon(@green);
+                .profileIcon(e(%(@white)));
             }
         }
     }

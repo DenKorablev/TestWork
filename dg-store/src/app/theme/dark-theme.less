@@ -1,4 +1,5 @@
 @import "./mixin.less";
+@import "../style/resource.less";
 
 @transparent: transparent;
 @white: #fff;
@@ -12,7 +13,7 @@
 @border-gray: #c4d0d9;
 @orange: #ff5630;
 @red: #ff0000;
-
+@white-t: @white;
 .dark {
     .theme(@white, @darken-gray);
     &_btn {
@@ -28,18 +29,18 @@
             .header-title(@white, @gray);        
         }
         &-burger {
-            .burger-menu(@white); 
+            .burger-menu(@green); 
             &-bg {
                 .burger-menu-bg(@black); 
                 &:hover {
                     background-color: @green;
-                    .ligth_header-burger {
+                    .dark_header-burger {
                         .burger-menu(@white);                 
                     }
                 }
                 &.open {
                     background-color: @green;
-                    .ligth_header-burger {
+                    .dark_header-burger {
                         .burger-menu(@white);                 
                     }
                 }
@@ -47,8 +48,11 @@
         }
         &-icon {
             .header-icon(@black);
+            background-size: 80%;
+            .profileIcon(@white);
             &:hover {
                 .header-icon(@green);
+                .profileIcon(@white);
             }
         }
     }

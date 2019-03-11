@@ -1,6 +1,3 @@
-@import "./mixin.less";
-@import "../style/resource.less";
-
 @transparent: transparent;
 @white: #fff;
 @black: #000;
@@ -13,6 +10,7 @@
 @border-gray: #c4d0d9;
 @orange: #ff5630;
 @red: #ff0000;
+@test: rgb(123,10,10);
 
 .dark {
     .theme(@white, @darken-gray);
@@ -48,8 +46,7 @@
         }
         &-icon {
             .header-icon(@black);
-            .profileIcon(@white);
-            background-size: 80%;
+            .profileIcon(@green);
             &:hover {
                 .header-icon(@green);
                 .profileIcon(@white);
@@ -75,6 +72,9 @@
         &-toolbar {
             .panel-toolbar(@white, @transparent);
             .border-bottom(@border-gray);
+            label {
+                .searchIcon(@green);
+            }
         }
         &-item {
             &-bg {
@@ -109,6 +109,28 @@
             &-error {
                 .form-text(@red);
             }
+        }
+    }
+    &_modal {
+        &-header {
+            .modal-header(@white, @black);
+        }
+        &-content {
+            .modal-content(@white, @darken-gray);
+            .mat-form-field-label {
+                color: @green!important;
+            }
+            .mat-form-field-invalid .mat-form-field-label {
+                color: @red!important;
+            }
+            .mat-form-field-invalid .mat-form-field-ripple, 
+            .mat-form-field-invalid .mat-form-field-ripple .mat-accent {
+                background-color: @red!important;
+            } 
+            .mat-form-field-wrapper .mat-form-field-ripple, 
+            .mat-form-field-wrapper .mat-form-field-ripple .mat-accent {
+                background-color: @green;
+            } 
         }
     }
 }

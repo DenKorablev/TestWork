@@ -3,6 +3,7 @@
     <div 
         cdkDragHandle 
         class="modal_header"
+        [ngClass]="this.themeService.changeTheme ? 'ligth_modal-header' : 'dark_modal-header'"
     >
         {{modalTitle}}
     </div>
@@ -12,7 +13,10 @@
         class="close"
     >
     </a>
-    <div class="modal_content">
+    <div 
+        class="modal_content"
+        [ngClass]="this.themeService.changeTheme ? 'ligth_modal-content' : 'dark_modal-content'"
+    >
         <div class="modal_content-text">
             <p>Для отображения имени пользователя. Введите имя и фамилию.</p>
         </div>
@@ -36,6 +40,7 @@
                 text="Принять"
                 typeValue="submit"
                 (click)="onChangedProfile()"
+                className="{{this.themeService.changeTheme ? 'ligth_btn' : 'dark_btn'}}"
             >
             </zdsBtn>
             <zdsBtn 
@@ -43,6 +48,7 @@
                 text="Отмена"
                 typeValue="submit"
                 (click)="returnPreviousValue()"
+                className="{{this.themeService.changeTheme ? 'ligth_btn' : 'dark_btn'}}"
             >
             </zdsBtn>
         </div>

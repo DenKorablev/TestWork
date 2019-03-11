@@ -1,6 +1,3 @@
-@import "./mixin.less";
-@import "../style/resource.less";
-
 @transparent: transparent;
 @white: #fff;
 @black: #000;
@@ -49,7 +46,6 @@
         &-icon {
             .header-icon(@light-blue);  
             .profileIcon(@white);
-            background-size: 80%;
             &:hover {
                 .header-icon(@green);
                 .profileIcon(@white);
@@ -70,7 +66,10 @@
         .container(@black, @transparent);
         &-toolbar {
             .panel-toolbar(@black, @transparent);
-            .border-bottom(@border-gray)
+            .border-bottom(@border-gray);
+            label {
+                .searchIcon(@light-blue);
+            }
         }
         &-item {
             &-bg {
@@ -107,8 +106,15 @@
             }
         }
     }
+    &_modal {
+        &-header {
+            .modal-header(@white, @light-blue);
+        }
+        &-content {
+            .modal-content(@black, @white);
+        }
+    }
 }
-
 
 /*angular_material*/
 .ligth_form {

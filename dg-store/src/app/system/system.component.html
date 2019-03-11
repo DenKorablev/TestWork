@@ -1,10 +1,4 @@
 <div class="wrapper" [ngClass]="toggleTheme() ? 'ligth' : 'dark'">
-    <button 
-        color="primary" 
-        (click)="toggleTheme()" 
-        [ngClass]="toggleTheme() ? 'ligth_btn' : 'dark_btn'">
-            Toggle theme
-        </button>
     <header 
         fxLayout="row" 
         [ngClass]="toggleTheme() ? 'ligth_header' : 'dark_header'">
@@ -23,6 +17,12 @@
             class="header_title" 
             [ngClass]="toggleTheme() ? 'ligth_header-title' : 'dark_header-title'">Интернет магазин</div>
         <div class="header_right-content">
+            <a 
+                class="toggle-color"
+                (click)="toggleTheme()" 
+                [ngClass]="toggleTheme() ? 'ligth_btn' : 'dark_btn'">
+                    Toggle
+            </a>
             <span 
                 [ngClass]="onAddDataUser()">
                     {{this.profileService.user_name}} {{this.profileService.user_surname}}

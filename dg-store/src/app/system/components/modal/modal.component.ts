@@ -1,6 +1,7 @@
 import { Component, Input } from '@angular/core';
 import { SharedService } from '../../../service/shared.service';
 import { ProfileService } from '../../../service/profile.service';
+import { ThemeService } from 'src/app/service/theme.service';
 
 @Component({
   selector: 'zds-modal',
@@ -15,7 +16,8 @@ export class ModalComponent {
 
   constructor(
     public sharedService: SharedService,
-    public profileService: ProfileService
+    public profileService: ProfileService,
+    public themeService: ThemeService
     ) { }
 
   closeProfileModal(): void {

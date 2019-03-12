@@ -64,6 +64,7 @@
                 border-color: @black;     
             }
             &.active {  
+                .sidebar-element(@white, @light-blue); 
                 .border-left-10(@blue);
                 li {
                     .sidebar-element(@white, @light-blue);  
@@ -71,6 +72,9 @@
             }
             &:hover {
                 .sidebar-element(@white, @light-blue);
+                li {
+                    .sidebar-element(@white, @light-blue);  
+                }    
                 .arrow-expand, 
                 .arrow-collapsed {
                     border-color: @white;     
@@ -134,7 +138,7 @@
 }
 
 /*angular_material*/
-.ligth_form {
+.ligth {
     .mat-form-field-label {
         color: black!important;
     }

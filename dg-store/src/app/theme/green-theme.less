@@ -12,144 +12,92 @@
 @red: #ff0000;
 @test: rgb(123,10,10);
 
-.green {
-    .theme(@white, @white);
-    &_btn {
-        .btn(@black, @white, @border-gray);
-        &:hover {
-            .btn(@white, @dark-green, @border-gray);       
-        }
-        &.active {
-            .btn(@white, @dark-green, @border-gray);
+.green {.theme(@white, @white);}                                    //фон приложения
+.green_btn { 
+    .btn(@black, @white, @border-gray);                             //цвет кнопок приложения
+    &:hover {
+        .btn(@white, @dark-green, @border-gray);                    //цвет кнопок при наведении      
+    }
+    &.active {
+        .btn(@white, @dark-green, @border-gray);                    //цвет кнопок, активные
+    }
+}
+.green_header {.header(@dark-green); .border(@border-gray);}        //цвет шапки
+.green_header-title {.header-title(@black, @white);}                //цвет заголовка в шапке
+.green_header-burger {.burger-menu(@black);}                        //цвет бургер меню
+.green_header-burger-bg {
+    .burger-menu-bg(@white);                                        //цвет фона бургер меню
+    &:hover {
+        background-color: @dark-green;                              //цвет фона бургер меню при наведении
+        .green_header-burger {
+            .burger-menu(@white);                                   //цвет бургер меню при наведении                
         }
     }
-    &_header {
-        .header(@dark-green);
-        .border(@border-gray);
-        &-title {
-            .header-title(@black, @white);        
+    &.open {
+        background-color: @dark-green;                              //цвет фона бургер меню, активное
+        .green_header-burger {
+            .burger-menu(@white);                                   //цвет бургер меню, активное
         }
-        &-burger {
-            .burger-menu(@black); 
-            &-bg {
-                .burger-menu-bg(@white); 
-                &:hover {
-                    background-color: @dark-green;
-                    .green_header-burger {
-                        .burger-menu(@white);                 
-                    }
-                }
-                &.open {
-                    background-color: @dark-green;
-                    .green_header-burger {
-                        .burger-menu(@white);                 
-                    }
-                }
-            }       
-        }
-        &-icon {
-            .header-icon(@dark-green);
-            .profileIcon(@white);
-            &:hover {
-                .header-icon(@dark-green);
-                .profileIcon(@green);
-            }
-        }
+    }    
+}
+.green_header-icon {
+    .header-icon(@dark-green);
+    .profileIcon(@white);
+    &:hover {
+        .header-icon(@dark-green);
+        .profileIcon(@green);
     }
-    &_sidebar {
-        .sidebar(@dark-green, @border-gray);
-        &-element {
-            .sidebar-element(@white, @dark-green);
-            .arrow-expand, 
-            .arrow-collapsed {
-                border-color: @white;     
-            }
-            &.active {
-                .border-left-10(@green);
-                li {
-                    .sidebar-element(@white, @darken-gray);           
-                }    
-            }
-            &:hover {
-                .sidebar-element(@white, @gray);
-                .arrow-expand, 
-                .arrow-collapsed {
-                    border-color: @white;     
-                }
-            }
-        }
+}
+.green_sidebar { .sidebar(@dark-green, @border-gray); }
+.green_sidebar-element { .sidebar-element(@white, @dark-green); }
+.green_sidebar-element { 
+    .sidebar-element(@white, @dark-green); 
+    .arrow-expand, 
+    .arrow-collapsed {
+        border-color: @white;     
     }
-    
-    &_container {
-        .container(@black, @white);
-        &-toolbar {
-            .panel-toolbar(@white, @transparent);
-            .border-bottom(@border-gray);
-            label {
-                .searchIcon(@green);
-            }
-        }
-        &-item {
-            &-bg {
-                .store-item-bg(@dark-green);
-            }
-            &-text {
-                .store-item-text(@white);
-            }
-            &-border {
-                .border(@border-gray);
-                .border-bottom(@white);
-            }    
-        }
+    &.active {
+        .sidebar-element(@white, @darken-gray); 
+        .border-left-10(@green);
+        li {
+            .sidebar-element(@white, @darken-gray);           
+        }    
     }
-
-    &_form {
-        .form(@white, @dark-green, @border-gray);
-        &-edit-name {
-            .form-text(@white);
-        }
-        &-btn {
-            .btn(@black, @white, @border-gray);
-            &:not(:disabled):hover {
-                .btn(@white, @dark-green, @border-gray);        
-            }
-        }
-        &-label {
-            .form-text(@white);
-        }
-        &-input {
-            .input(white);
-            &-error {
-                .form-text(@red);
-            }
-        }
-    }
-    &_modal {
-        &-header {
-            .modal-header(@white, @dark-green);
-        }
-        &-content {
-            .modal-content(@black, @white);
-            .mat-form-field-label {
-                color: @black!important;
-            }
-            .mat-form-field-invalid .mat-form-field-label {
-                color: @red!important;
-            }
-            .mat-form-field-invalid .mat-form-field-ripple, 
-            .mat-form-field-invalid .mat-form-field-ripple .mat-accent {
-                background-color: @red!important;
-            } 
-            .mat-form-field-wrapper .mat-form-field-ripple, 
-            .mat-form-field-wrapper .mat-form-field-ripple .mat-accent {
-                background-color: @dark-green;
-            } 
+    &:hover {
+        .sidebar-element(@white, @gray);
+        li {
+            .sidebar-element(@white, @gray);           
+        }    
+        .arrow-expand, 
+        .arrow-collapsed {
+            border-color: @white;     
         }
     }
 }
+.green_container {.container(@black, @white);}
+.green_container-toolbar {
+    .panel-toolbar(@white, @transparent);
+    .border-bottom(@border-gray);
+}
+.green_container-toolbar label {.searchIcon(@black);}
+.green_container-item-bg {.store-item-bg(@dark-green);}
+.green_container-item-text {.store-item-text(@white);}
+.green_container-item-border {
+    .border(@border-gray);
+    .border-bottom(@white);
+}
+.green_form {.form(@white, @dark-green, @border-gray);}
+.green_form-edit-name {.form-text(@white);}
+.green_form-btn {.btn(@black, @white, @border-gray);}
+.green_form-btn:not(:disabled):hover {.btn(@white, @dark-green, @border-gray);}
+.green_form-label {.form-text(@white);}
+.green_form-input {.input(white);}
+.green_form-input-error {.form-text(@red)}
+.green_modal-header {.modal-header(@white, @darken-gray);}
+.green_modal-content {.modal-content(@black, @dark-green);}
 
 /*angular_material*/
-.green_form {
+.green {
     .mat-form-field-label {
         color: @white!important;
     }

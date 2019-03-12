@@ -14,7 +14,7 @@
 
 .dark {
     .theme(@white, @darken-gray);
-    &_btn {
+    &_btn {       
         .btn(@white, @black, @border-gray);
         &:hover {
             .btn(@white, @green, @border-gray);       
@@ -65,6 +65,7 @@
                 border-color: @white;     
             }
             &.active {
+                .sidebar-element(@white, @green); 
                 .border-left-10(@green);
                 li {
                     .sidebar-element(@white, @green);           
@@ -72,6 +73,9 @@
             }
             &:hover {
                 .sidebar-element(@white, @darken-gray);
+                li {
+                    .sidebar-element(@white, @darken-gray);           
+                }    
                 .arrow-expand, 
                 .arrow-collapsed {
                     border-color: @white;     
@@ -130,26 +134,12 @@
         }
         &-content {
             .modal-content(@white, @darken-gray);
-            .mat-form-field-label {
-                color: @green!important;
-            }
-            .mat-form-field-invalid .mat-form-field-label {
-                color: @red!important;
-            }
-            .mat-form-field-invalid .mat-form-field-ripple, 
-            .mat-form-field-invalid .mat-form-field-ripple .mat-accent {
-                background-color: @red!important;
-            } 
-            .mat-form-field-wrapper .mat-form-field-ripple, 
-            .mat-form-field-wrapper .mat-form-field-ripple .mat-accent {
-                background-color: @green;
-            } 
         }
     }
 }
 
 /*angular_material*/
-.dark_form {
+.dark {
     .mat-form-field-label {
         color: @green!important;
     }

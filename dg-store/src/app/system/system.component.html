@@ -54,22 +54,28 @@
             diameter=50
         >
         </mat-spinner>
-        <zds-sidebar
-            [@changeSizeSidebar]="currentState"  
-            [class.open]="this.isSidebarOpen"
-            (selectedCategory)="changeCategoryItems($event)"
-            [ngClass]="this.themeService.themeCurrentClass+'_sidebar sidebar'"
-        >
-        </zds-sidebar>
-        <zds-item-container 
-            fxFlex="100"
-            [items]="items" 
-            (isAdd)="isAddedProducts($event)" 
-            (editItem)="editProduct($event)"
-            (onPhotoUrl)="newPhotoUrl($event)"
-            [className]="this.themeService.themeCurrentClass+'_container store-content'"
-        >
-        </zds-item-container>
+        <as-split direction="horizontal">
+            <as-split-area [ngClass]="this.themeService.themeCurrentClass+'_sidebar'">
+                <zds-sidebar
+                    [@changeSizeSidebar]="currentState"  
+                    [class.open]="this.isSidebarOpen"
+                    (selectedCategory)="changeCategoryItems($event)"     
+                    class="sidebar"          
+                >
+                </zds-sidebar>
+            </as-split-area>
+            <as-split-area>
+                <zds-item-container 
+                    fxFlex="100"
+                    [items]="items" 
+                    (isAdd)="isAddedProducts($event)" 
+                    (editItem)="editProduct($event)"
+                    (onPhotoUrl)="newPhotoUrl($event)"
+                    [className]="this.themeService.themeCurrentClass+'_container store-content'"
+                >
+                </zds-item-container>
+            </as-split-area>
+        </as-split>
         <zds-edit-item 
             [item]="editItem" 
             [isAddedProduct]="isAddedProduct" 

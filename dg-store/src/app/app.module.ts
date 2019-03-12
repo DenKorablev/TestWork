@@ -11,6 +11,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NgxPaginationModule } from 'ngx-pagination';
 import { MatInputModule } from '@angular/material/input'
 import {DragDropModule} from '@angular/cdk/drag-drop';
+import { AngularSplitModule } from 'angular-split';
 
 import { AppComponent } from './app.component';
 import { ItemContainerComponent } from './system/components/item-container/item-container.component';
@@ -65,7 +66,8 @@ import { ThemeService } from './service/theme.service';
     MatProgressSpinnerModule,
     MatInputModule,
     DragDropModule,
-    UserComponentModule
+    UserComponentModule,
+    AngularSplitModule.forRoot()
   ],
   providers: [
     ItemService,

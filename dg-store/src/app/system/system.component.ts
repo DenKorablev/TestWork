@@ -111,12 +111,8 @@ export class SystemComponent implements OnInit {
       : '';
   }
 
-  toggleTheme(): boolean {
-    return this.themeService.onChangeTheme();
-  }
-
   changeThemeColor(color) {
     this.themeService.themeCurrentClass = color;
-    this.toggleTheme();
+    localStorage.setItem('theme', this.themeService.themeCurrentClass);
   }
 }

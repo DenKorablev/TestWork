@@ -1,36 +1,49 @@
-<div class="wrapper" [ngClass]="toggleTheme() ? 'ligth' : 'dark'">
+<div class="wrapper" 
+    [className]="this.themeService.themeCurrentClass + ' ' + 'wrapper'">
     <header 
         fxLayout="row" 
-        [ngClass]="toggleTheme() ? 'ligth_header' : 'dark_header'">
+        [className]="this.themeService.themeCurrentClass+'_header'">
         <div 
             zdsPagination
-            class="nav-btn" 
             [class.open]="this.isSidebarOpen"
             (click)="sidebarOpen()"
-            [ngClass]="toggleTheme() ? 'ligth_header-burger-bg' : 'dark_header-burger-bg'"
+            [className]="this.themeService.themeCurrentClass+'_header-burger-bg nav-btn'"
             >
-            <span [ngClass]="toggleTheme() ? 'ligth_header-burger' : 'dark_header-burger'"></span>
-            <span [ngClass]="toggleTheme() ? 'ligth_header-burger' : 'dark_header-burger'"></span>
-            <span [ngClass]="toggleTheme() ? 'ligth_header-burger' : 'dark_header-burger'"></span>
+            <span [className]="this.themeService.themeCurrentClass+'_header-burger'"></span>
+            <span [className]="this.themeService.themeCurrentClass+'_header-burger'"></span>
+            <span [className]="this.themeService.themeCurrentClass+'_header-burger'"></span>
         </div>
         <div 
-            class="header_title" 
-            [ngClass]="toggleTheme() ? 'ligth_header-title' : 'dark_header-title'">Интернет магазин</div>
+            [className]="this.themeService.themeCurrentClass+'_header-title header_title'" 
+            >
+            Интернет магазин
+        </div>
         <div class="header_right-content">
             <a 
-                class="toggle-color"
-                (click)="toggleTheme()" 
-                [ngClass]="toggleTheme() ? 'ligth_btn' : 'dark_btn'">
-                    Toggle
+                (click)="changeThemeColor('dark')"
+                [ngClass]="this.themeService.themeCurrentClass+'_btn toggle-color'"
+                [class.active]="this.themeService.themeCurrentClass == 'dark'">
+                    dark
+            </a>
+            <a 
+                (click)="changeThemeColor('green')"
+                [ngClass]="this.themeService.themeCurrentClass+'_btn toggle-color'"
+                [class.active]="this.themeService.themeCurrentClass == 'green'">
+                    green
+            </a>
+            <a 
+                (click)="changeThemeColor('ligth')" 
+                [ngClass]="this.themeService.themeCurrentClass+'_btn toggle-color'"
+                [class.active]="this.themeService.themeCurrentClass == 'ligth'">
+                    ligth
             </a>
             <span 
                 [ngClass]="onAddDataUser()">
                     {{this.profileService.user_name}} {{this.profileService.user_surname}}
             </span>
             <div 
-                class="modal-info" 
                 (click)="openProfileModal()" 
-                [ngClass]="toggleTheme() ? 'ligth_header-icon' : 'dark_header-icon'">
+                [className]="this.themeService.themeCurrentClass+'_header-icon modal-info'">
             </div>
         </div>
     </header>
@@ -43,10 +56,9 @@
         </mat-spinner>
         <zds-sidebar
             [@changeSizeSidebar]="currentState"  
-            class="sidebar"      
             [class.open]="this.isSidebarOpen"
             (selectedCategory)="changeCategoryItems($event)"
-            [ngClass]="toggleTheme() ? 'ligth_sidebar' : 'dark_sidebar'"
+            [ngClass]="this.themeService.themeCurrentClass+'_sidebar sidebar'"
         >
         </zds-sidebar>
         <zds-item-container 
@@ -55,8 +67,7 @@
             (isAdd)="isAddedProducts($event)" 
             (editItem)="editProduct($event)"
             (onPhotoUrl)="newPhotoUrl($event)"
-            class="store-content"
-            [ngClass]="toggleTheme() ? 'ligth_container' : 'dark_container'"
+            [className]="this.themeService.themeCurrentClass+'_container store-content'"
         >
         </zds-item-container>
         <zds-edit-item 

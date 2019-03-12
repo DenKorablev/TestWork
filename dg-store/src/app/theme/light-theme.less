@@ -18,6 +18,9 @@
         &:hover {
             .btn(@white, @green, @transparent);       
         }
+        &.active {
+            .btn(@white, @green, @border-gray);
+        }
     }
     &_header {
         .header(@light-blue);
@@ -56,8 +59,22 @@
         .sidebar(@white, @transparent);
         &-element {
             .sidebar-element(@black, @white);
+            .arrow-expand, 
+            .arrow-collapsed {
+                border-color: @black;     
+            }
+            &.active {  
+                .border-left-10(@blue);
+                li {
+                    .sidebar-element(@white, @light-blue);  
+                }    
+            }
             &:hover {
                 .sidebar-element(@white, @light-blue);
+                .arrow-expand, 
+                .arrow-collapsed {
+                    border-color: @white;     
+                }
             }
         }
     }

@@ -1,10 +1,8 @@
 <div 
-  class="panel-toolbar"  
-  [ngClass]="this.themeService.changeTheme ? 'ligth_container-toolbar' : 'dark_container-toolbar'">
+  [className]="this.themeService.themeCurrentClass+'_container-toolbar panel-toolbar'">
   <a 
-    class="add-item" 
     (click)="addProduct()"
-    [ngClass]="this.themeService.changeTheme ? 'ligth_btn' : 'dark_btn'"
+    [className]="this.themeService.themeCurrentClass+'_btn add-item'"
     >
       Добавить товар
   </a>
@@ -16,8 +14,7 @@
 <div fxLayout="row" class="item-container" zdsPagination>
   <div 
     *ngFor="let item of items | filter:this.searchProduct | paginate: { itemsPerPage:this.addProductsService.itemsPer, currentPage:p }"
-    class="product-item"
-    [ngClass]="this.themeService.changeTheme ? 'ligth_container-item-border' : 'dark_container-item-border'"
+    [className]="this.themeService.themeCurrentClass+'_container-item-border product-item'"
   >
     <span 
       class="edit"
@@ -31,23 +28,20 @@
     </span>
     <div fxLayout="column-reverse" class="image" [ngStyle]="{'backgroundImage': 'url('+ item.photo +')'}">
     <div 
-      class="product-list" 
-      [ngClass]="this.themeService.changeTheme ? 'ligth_container-item-bg' : 'dark_container-item-bg'">
+      [className]="this.themeService.themeCurrentClass+'_container-item-bg product-list'">
       <h3 
         zdsTolltipName
-        [ngClass]="this.themeService.changeTheme ? 'ligth_container-item-text' : 'dark_container-item-text'">
+        [className]="this.themeService.themeCurrentClass+'_container-item-text'">
         {{item.name}} 
       </h3>
         <span 
-          class="price" 
           zdsTolltipName
-          [ngClass]="this.themeService.changeTheme ? 'ligth_container-item-text' : 'dark_container-item-text'">
+          [className]="this.themeService.themeCurrentClass+'_container-item-text price'">
             ₽ {{item.price}}
         </span>
         <span 
-          class="count" 
           zdsTolltipName
-          [ngClass]="this.themeService.changeTheme ? 'ligth_container-item-text' : 'dark_container-item-text'">
+          [className]="this.themeService.themeCurrentClass+'_container-item-text count'">
             В наличие: {{item.count}} шт.
         </span>
     </div>

@@ -12,54 +12,54 @@
 @red: #ff0000;
 @test: rgb(123,10,10);
 
-.dark {
-    .theme(@white, @darken-gray);
+.green {
+    .theme(@white, @white);
     &_btn {
-        .btn(@white, @black, @border-gray);
+        .btn(@black, @white, @border-gray);
         &:hover {
-            .btn(@white, @green, @border-gray);       
+            .btn(@white, @dark-green, @border-gray);       
         }
         &.active {
-            .btn(@white, @green, @border-gray);
+            .btn(@white, @dark-green, @border-gray);
         }
     }
     &_header {
-        .header(@black);
+        .header(@dark-green);
         .border(@border-gray);
         &-title {
-            .header-title(@white, @gray);        
+            .header-title(@black, @white);        
         }
         &-burger {
-            .burger-menu(@green); 
+            .burger-menu(@black); 
             &-bg {
-                .burger-menu-bg(@black); 
+                .burger-menu-bg(@white); 
                 &:hover {
-                    background-color: @green;
-                    .dark_header-burger {
+                    background-color: @dark-green;
+                    .green_header-burger {
                         .burger-menu(@white);                 
                     }
                 }
                 &.open {
-                    background-color: @green;
-                    .dark_header-burger {
+                    background-color: @dark-green;
+                    .green_header-burger {
                         .burger-menu(@white);                 
                     }
                 }
             }       
         }
         &-icon {
-            .header-icon(@black);
-            .profileIcon(@green);
+            .header-icon(@dark-green);
+            .profileIcon(@white);
             &:hover {
-                .header-icon(@green);
-                .profileIcon(@white);
+                .header-icon(@dark-green);
+                .profileIcon(@green);
             }
         }
     }
     &_sidebar {
-        .sidebar(@black, @border-gray);
+        .sidebar(@dark-green, @border-gray);
         &-element {
-            .sidebar-element(@white, @black);
+            .sidebar-element(@white, @dark-green);
             .arrow-expand, 
             .arrow-collapsed {
                 border-color: @white;     
@@ -67,11 +67,11 @@
             &.active {
                 .border-left-10(@green);
                 li {
-                    .sidebar-element(@white, @green);           
+                    .sidebar-element(@white, @darken-gray);           
                 }    
             }
             &:hover {
-                .sidebar-element(@white, @darken-gray);
+                .sidebar-element(@white, @gray);
                 .arrow-expand, 
                 .arrow-collapsed {
                     border-color: @white;     
@@ -81,7 +81,7 @@
     }
     
     &_container {
-        .container(@white, @darken-gray);
+        .container(@black, @white);
         &-toolbar {
             .panel-toolbar(@white, @transparent);
             .border-bottom(@border-gray);
@@ -91,7 +91,7 @@
         }
         &-item {
             &-bg {
-                .store-item-bg(@black);
+                .store-item-bg(@dark-green);
             }
             &-text {
                 .store-item-text(@white);
@@ -104,14 +104,14 @@
     }
 
     &_form {
-        .form(@white, @black, @border-gray);
+        .form(@white, @dark-green, @border-gray);
         &-edit-name {
-            .form-text(@green);
+            .form-text(@white);
         }
         &-btn {
-            .btn(@white, @darken-gray, @border-gray);
+            .btn(@black, @white, @border-gray);
             &:not(:disabled):hover {
-                .btn(@white, @green, @transparent);        
+                .btn(@white, @dark-green, @border-gray);        
             }
         }
         &-label {
@@ -126,12 +126,12 @@
     }
     &_modal {
         &-header {
-            .modal-header(@white, @black);
+            .modal-header(@white, @dark-green);
         }
         &-content {
-            .modal-content(@white, @darken-gray);
+            .modal-content(@black, @white);
             .mat-form-field-label {
-                color: @green!important;
+                color: @black!important;
             }
             .mat-form-field-invalid .mat-form-field-label {
                 color: @red!important;
@@ -142,16 +142,16 @@
             } 
             .mat-form-field-wrapper .mat-form-field-ripple, 
             .mat-form-field-wrapper .mat-form-field-ripple .mat-accent {
-                background-color: @green;
+                background-color: @dark-green;
             } 
         }
     }
 }
 
 /*angular_material*/
-.dark_form {
+.green_form {
     .mat-form-field-label {
-        color: @green!important;
+        color: @white!important;
     }
     .mat-form-field-invalid .mat-form-field-label {
         color: @red!important;
@@ -162,6 +162,6 @@
     } 
     .mat-form-field-wrapper .mat-form-field-ripple, 
     .mat-form-field-wrapper .mat-form-field-ripple .mat-accent {
-        background-color: @green;
+        background-color: @white;
     } 
 }

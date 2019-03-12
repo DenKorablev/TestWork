@@ -1,7 +1,7 @@
 <form 
     [formGroup]="form" 
     (ngSubmit)="onSubmit()" 
-    [ngClass]="this.themeService.changeTheme ? 'ligth_form' : 'dark_form'">
+    [className]="this.themeService.themeCurrentClass+'_form'">
     <p 
         class="text-title" 
         *ngIf="isAddedProduct">
@@ -12,20 +12,20 @@
         *ngIf="!isAddedProduct">
             Редактирование товара:<br>
         <span 
-            [ngClass]="this.themeService.changeTheme ? 'ligth_form-edit-name' : 'dark_form-edit-name'">
+            [className]="this.themeService.themeCurrentClass+'_form-edit-name'">
                 {{item.name}}
         </span>
     </p>
     <div class="form-group" fxLayout="column">
         <label 
-            class="uploadButton" for="photo"
-            [ngClass]="this.themeService.changeTheme ? 'ligth_form-btn' : 'dark_form-btn'">
+            for="photo"
+            [className]="this.themeService.themeCurrentClass+'_form-btn uploadButton'">
                 Загрузить изображение
         </label>
         <div fxLayout="row">
         <label 
             fxLayoutAlign="center center"
-            [ngClass]="this.themeService.changeTheme ? 'ligth_form-label' : 'dark_form-label'">
+            [className]="this.themeService.themeCurrentClass+'_form-label'">
                 Фото
         </label>
             <div>
@@ -43,12 +43,11 @@
     <div class="form-group" fxLayout="row" fxLayoutAlign="center">
         <label 
         for="name"
-        [ngClass]="this.themeService.changeTheme ? 'ligth_form-label' : 'dark_form-label'">
+        [className]="this.themeService.themeCurrentClass+'_form-label'">
             Наименование
     </label>
         <div fxLayout="column">
-            <mat-form-field
-                [ngClass]="this.themeService.changeTheme ? 'ligth_form-input' : 'dark_form-input'">
+            <mat-form-field>
                 <input 
                     matInput 
                     type="text"
@@ -59,9 +58,8 @@
                 >
             </mat-form-field>
             <span 
-                class="error-message"
                 *ngIf="isControlInvalid('name')"
-                [ngClass]="this.themeService.changeTheme ? 'ligth_form-input-error' : 'dark_form-input-error'"
+                [className]="this.themeService.themeCurrentClass+'_form-input-error error-message'"
             >
                 <span class="error-message-text" *ngIf="form.get('name')['errors']['required']">* Поле наименования должно быть заполнено</span>
                 <span class="error-message-text" *ngIf="form.get('name')['errors']['pattern']">* Поле наименования не может начинаться с цифры</span>
@@ -71,12 +69,11 @@
     <div class="form-group" fxLayout="row" fxLayoutAlign="center">
         <label 
             for="price"
-            [ngClass]="this.themeService.changeTheme ? 'ligth_form-label' : 'dark_form-label'">
+            [className]="this.themeService.themeCurrentClass+'_form-label'">
                 Цена
         </label>
         <div fxLayout="column">
-            <mat-form-field
-                [ngClass]="this.themeService.changeTheme ? 'ligth_form-input' : 'dark_form-input'">
+            <mat-form-field>
                 <input 
                     matInput 
                     type="number"
@@ -88,8 +85,7 @@
             </mat-form-field>
             <span             
                 *ngIf="isControlInvalid('price')"
-                class="error-message"
-                [ngClass]="this.themeService.changeTheme ? 'ligth_form-input-error' : 'dark_form-input-error'"
+                [className]="this.themeService.themeCurrentClass+'_form-input-error error-message'"
             >
                 <span 
                     class="error-message-text" 
@@ -107,12 +103,11 @@
     <div class="form-group" fxLayout="row" fxLayoutAlign="center">
         <label 
             for="count"
-            [ngClass]="this.themeService.changeTheme ? 'ligth_form-label' : 'dark_form-label'">
+            [className]="this.themeService.themeCurrentClass+'_form-label'">
                 Количество
         </label>
         <div fxLayout="column">
-            <mat-form-field 
-                [ngClass]="this.themeService.changeTheme ? 'ligth_form-input' : 'dark_form-input'">
+            <mat-form-field>
                 <input 
                     matInput 
                     type="number"
@@ -126,7 +121,7 @@
             <span             
                 *ngIf="isControlInvalid('count')"
                 class="error-message"
-                [ngClass]="this.themeService.changeTheme ? 'ligth_form-input-error' : 'dark_form-input-error'"
+                [className]="this.themeService.themeCurrentClass+'_form-input-error error-message'"
             >
                 <span 
                     class="error-message-text" 
@@ -145,7 +140,7 @@
         <zdsBtn 
             text="Ok"
             typeValue="submit"
-            className="{{this.themeService.changeTheme ? 'ligth_form-btn' : 'dark_form-btn'}}"
+            className="{{this.themeService.themeCurrentClass+'_form-btn'}}"
             disable="{{form.invalid}}"
             *ngIf="isAddedProduct"
         >
@@ -153,7 +148,7 @@
         <zdsBtn 
             text="Принять"
             typeValue="submit" 
-            className="{{this.themeService.changeTheme ? 'ligth_form-btn' : 'dark_form-btn'}}"
+            className="{{this.themeService.themeCurrentClass+'_form-btn'}}"
             disable="{{form.invalid && form.touched}}"
             *ngIf="!isAddedProduct"
         >
@@ -161,7 +156,7 @@
         <zdsBtn 
             text="Отмена"
             typeValue="button"
-            className="{{this.themeService.changeTheme ? 'ligth_form-btn' : 'dark_form-btn'}}"
+            className="{{this.themeService.themeCurrentClass+'_form-btn'}}"
             (click)="clearForm()"
         >
         </zdsBtn>

@@ -2,8 +2,7 @@
 <div cdkDrag class="popup-modal">
     <div 
         cdkDragHandle 
-        class="modal_header"
-        [ngClass]="this.themeService.changeTheme ? 'ligth_modal-header' : 'dark_modal-header'"
+        [className]="this.themeService.themeCurrentClass+'_modal-header modal_header'"
     >
         {{modalTitle}}
     </div>
@@ -14,8 +13,7 @@
     >
     </a>
     <div 
-        class="modal_content"
-        [ngClass]="this.themeService.changeTheme ? 'ligth_modal-content' : 'dark_modal-content'"
+        [className]="this.themeService.themeCurrentClass+'_modal-content modal_content'"
     >
         <div class="modal_content-text">
             <p>Для отображения имени пользователя. Введите имя и фамилию.</p>
@@ -40,7 +38,7 @@
                 text="Принять"
                 typeValue="submit"
                 (click)="onChangedProfile()"
-                className="{{this.themeService.changeTheme ? 'ligth_btn' : 'dark_btn'}}"
+                className="{{this.themeService.themeCurrentClass+'btn'}}"
             >
             </zdsBtn>
             <zdsBtn 
@@ -48,7 +46,7 @@
                 text="Отмена"
                 typeValue="submit"
                 (click)="returnPreviousValue()"
-                className="{{this.themeService.changeTheme ? 'ligth_btn' : 'dark_btn'}}"
+                className="{{this.themeService.themeCurrentClass+'btn'}}"
             >
             </zdsBtn>
         </div>

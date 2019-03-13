@@ -9,7 +9,8 @@
     "lint": "ng lint",
     "e2e": "ng e2e",
     "unpack:build": "ng build --project user-component",
-    "unpack": "npm run unpack:build && cd dist/user-component && npm pack && copy user-component-0.0.1.tgz ..\\..\\..\\dg-store\\base-component\\"
+    "unpack": "npm run unpack:build && cd dist/user-component && npm pack && copy user-component-0.0.1.tgz ..\\..\\..\\dg-store\\base-component\\",
+    "theme": "cd projects/theme && npm pack && copy theme-0.0.1.tgz ..\\..\\..\\dg-store\\base-component\\"
   },
   "private": true,
   "dependencies": {

@@ -5,8 +5,8 @@
         [className]="this.themeService.themeCurrentClass+'_header'">
         <div 
             zdsPagination
-            [class.open]="this.isSidebarOpen"
             (click)="sidebarOpen()"
+            [class.open]="this.isSidebarOpen"
             [className]="this.themeService.themeCurrentClass+'_header-burger-bg nav-btn'"
             >
             <span [className]="this.themeService.themeCurrentClass+'_header-burger'"></span>
@@ -54,8 +54,8 @@
             diameter=50
         >
         </mat-spinner>
-        <as-split direction="horizontal">
-            <as-split-area [ngClass]="this.themeService.themeCurrentClass+'_sidebar'">
+        <as-split direction="horizontal" gutterSize = "4">
+            <as-split-area [visible]="spVlisble" [ngClass]="this.themeService.themeCurrentClass+'_sidebar'" [size]="25" order="1">
                 <zds-sidebar
                     [@changeSizeSidebar]="currentState"  
                     [class.open]="this.isSidebarOpen"
@@ -64,7 +64,7 @@
                 >
                 </zds-sidebar>
             </as-split-area>
-            <as-split-area>
+            <as-split-area  [size]="75" order="2">
                 <zds-item-container 
                     fxFlex="100"
                     [items]="items" 

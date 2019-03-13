@@ -12,20 +12,6 @@ import { ThemeService } from '../service/theme.service';
   selector: 'zds-system',
   templateUrl: './system.component.html',
   styleUrls: ['./system.component.less'],
-  animations: [  
-    trigger('changeSizeSidebar', [  
-      state('initial', style({  
-        width: '40px',  
-        minWidth: '40px'
-      })),  
-      state('final', style({  
-        width: '380px',
-        minWidth: '380px'
-      })),  
-      transition('initial=>final', animate('150ms')),  
-      transition('final=>initial', animate('150ms'))  
-    ]),  
-  ]  
 })
 
 export class SystemComponent implements OnInit {
@@ -35,6 +21,7 @@ export class SystemComponent implements OnInit {
   public isSidebarOpen: boolean = false;
   public currentState = 'initial';
   isLoaded: boolean;
+  spVlisble: boolean = false;
 
   constructor(
     private itemService: ItemService,
@@ -92,8 +79,8 @@ export class SystemComponent implements OnInit {
   }  
 
   sidebarOpen(): void {
-    this.currentState = this.currentState === 'initial' ? 'final' : 'initial';
     this.isSidebarOpen = !this.isSidebarOpen;
+    this.spVlisble = !this.spVlisble;
   }
 
   openProfileModal(): void {

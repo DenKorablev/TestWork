@@ -1,103 +1,89 @@
-@transparent: transparent;
-@white: #fff;
-@black: #000;
-@light-blue: #3ce;
-@blue: #07bede;
-@green: #8cc63e;
-@dark-green: #006644;
-@gray: #6c757d;
-@darken-gray: #303030;
-@border-gray: #c4d0d9;
-@orange: #ff5630;
-@red: #ff0000;
-@test: rgb(123,10,10);
-
-.green {.theme(@white, @white);}                                    //фон приложения
-.green_btn { 
-    .btn(@black, @white, @border-gray);                             //цвет кнопок приложения
-    &:hover {
-        .btn(@white, @dark-green, @border-gray);                    //цвет кнопок при наведении      
-    }
-    &.active {
-        .btn(@white, @dark-green, @border-gray);                    //цвет кнопок, активные
-    }
-}
-.green_header {.header(@dark-green); .border(@border-gray);}        //цвет шапки
-.green_header-title {.header-title(@black, @white);}                //цвет заголовка в шапке
-.green_header-burger {.burger-menu(@black);}                        //цвет бургер меню
-.green_header-burger-bg {
-    .burger-menu-bg(@white);                                        //цвет фона бургер меню
-    &:hover {
-        background-color: @dark-green;                              //цвет фона бургер меню при наведении
-        .green_header-burger {
-            .burger-menu(@white);                                   //цвет бургер меню при наведении                
+.green {
+    .color(@white); 
+    .background(@black);
+    &_btn { 
+        .color(@black); .background(@white); .border(@border-gray);                     
+        &:hover {
+            .color(@white); .background(@dark-green); .border(@border-gray);                    
+        }
+        &.active {
+            .color(@white); .background(@dark-green); .border(@border-gray);                  
         }
     }
-    &.open {
-        background-color: @dark-green;                              //цвет фона бургер меню, активное
-        .green_header-burger {
-            .burger-menu(@white);                                   //цвет бургер меню, активное
+    &_header { .background(@dark-green); .border(@border-gray); }       
+    &_header-title { .color(@black); .background(@white); }               
+    &_header-burger { .background(@black); }                        
+    &_header-burger-bg {
+        .background(@white);                                       
+        &:hover {
+        .background(@dark-green);                           
+            &_header-burger {
+                .background(@white);                                                
+            }
         }
-    }    
-}
-.green_header-icon {
-    .header-icon(@dark-green);
-    .profileIcon(@white);
-    &:hover {
-        .header-icon(@dark-green);
-        .profileIcon(@green);
-    }
-}
-.green_sidebar { .sidebar(@dark-green, @border-gray); }
-.green_sidebar-element { .sidebar-element(@white, @dark-green); }
-.green_sidebar-element { 
-    .sidebar-element(@white, @dark-green); 
-    .arrow-expand, 
-    .arrow-collapsed {
-        border-color: @white;     
-    }
-    &.active {
-        .sidebar-element(@white, @darken-gray); 
-        .border-left-10(@green);
-        li {
-            .sidebar-element(@white, @darken-gray);           
+        &.open {
+            .background(@dark-green);                            
+            .green_header-burger {
+                .background(@white);                                     
+            }
         }    
     }
-    &:hover {
-        .sidebar-element(@white, @gray);
-        li {
-            .sidebar-element(@white, @gray);           
-        }    
+    &_header-icon {
+        .background(@dark-green); 
+        .profileIcon(@white);
+        &:hover {
+            .background(@dark-green); 
+            .profileIcon(@green);
+        }
+    }
+    &_sidebar { .background(@dark-green); .border(@border-gray); }
+    &_sidebar-element { 
+        .color(@white); .background(@dark-green); 
         .arrow-expand, 
         .arrow-collapsed {
             border-color: @white;     
         }
+        &.active {
+            .color(@white); .background(@darken-gray);  
+            .border-left-10(@green);
+            li {
+                .color(@white); .background(@darken-gray);            
+            }    
+        }
+        &:hover {
+            .color(@white); .background(gray);  
+            li {
+                .color(@white); .background(@gray);           
+            }    
+            .arrow-expand, 
+            .arrow-collapsed {
+                border-color: @white;     
+            }
+        }
     }
-}
-.green_container {.container(@black, @white);}
-.green_container-toolbar {
-    .panel-toolbar(@white, @transparent);
-    .border-bottom(@border-gray);
-}
-.green_container-toolbar label {.searchIcon(@black);}
-.green_container-item-bg {.store-item-bg(@dark-green);}
-.green_container-item-text {.store-item-text(@white);}
-.green_container-item-border {
-    .border(@border-gray);
-    .border-bottom(@white);
-}
-.green_form {.form(@white, @dark-green, @border-gray);}
-.green_form-edit-name {.form-text(@white);}
-.green_form-btn {.btn(@black, @white, @border-gray);}
-.green_form-btn:not(:disabled):hover {.btn(@white, @dark-green, @border-gray);}
-.green_form-label {.form-text(@white);}
-.green_form-input {.input(white);}
-.green_form-input-error {.form-text(@red)}
-.green_modal-header {.modal-header(@white, @darken-gray);}
-.green_modal-content {.modal-content(@black, @dark-green);}
+    &_container { .color(@black); .background(@white); }
+    &_container-toolbar {
+        .color(@white); .background(@transparent);
+        .border-bottom(@border-gray);
+    }
+    &_container-toolbar label { .searchIcon(@black); }
+    &_container-item-bg { .background(@dark-green); }
+    &_container-item-text { .color(@white); }
+    &_container-item-border {
+        .border(@border-gray);
+        .border-bottom(@white);
+    }
+    &_form { .color(@white); .background(@dark-green); .border(@border-gray); }
+    &_form-edit-name { .color(@white); }
+    &_form-btn { .color(@black); .background(@white); .border(@border-gray); }
+    &_form-btn:not(:disabled):hover { .color(@white); .background(@dark-green); .border(@border-gray); }
+    &_form-label { .color(@white); }
+    &_form-input { .color(white); }
+    &_form-input-error { .color(@red); }
+    &_modal-header { .color(@white); .background(@darken-gray); }
+    &_modal-content { .color(@black); .background(@dark-green); }
 
-/*angular_material*/
-.green {
+    /*angular_material*/
     .mat-form-field-label {
         color: @white!important;
     }

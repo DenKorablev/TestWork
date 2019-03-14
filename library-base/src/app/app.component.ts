@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
-import { ThemeService } from './theme.service';
+import { StoreService } from './mobx/store';
+import { action } from 'mobx-angular';
 
 @Component({
   selector: 'app-root',
@@ -10,10 +11,14 @@ export class AppComponent {
   title = 'LibraryBase';
 
   constructor(
-    public themeService: ThemeService
+    private storeService: StoreService
   ) {}
 
   changeTheme(theme) {
-    this.themeService.themeCurrent = theme;
+    this.storeService.themeCurrent = theme;
+  }
+
+  @action theme(className): string {
+    return this.storeService.themeCurrent + '_' + className;
   }
 }

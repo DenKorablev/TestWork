@@ -7,7 +7,8 @@ import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule } from '@angular/forms';
 import { MatInputModule } from '@angular/material';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { ThemeService } from './theme.service';
+import { MobxAngularModule } from 'mobx-angular';
+import { StoreService } from './mobx/store';
 
 @NgModule({
   declarations: [
@@ -19,9 +20,10 @@ import { ThemeService } from './theme.service';
     BrowserModule,
     FormsModule,
     MatInputModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    MobxAngularModule
   ],
-  providers: [ThemeService],
+  providers: [StoreService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

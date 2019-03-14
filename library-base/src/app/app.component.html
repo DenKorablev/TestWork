@@ -2,17 +2,20 @@
 <div class="panel-toolbar">
   <a 
     (click)="changeTheme('dark')"
-    [ngClass]="this.themeService.themeCurrent+'_btn toggle-btn'">
+    class="toggle-btn"
+    [ngClass]="theme('btn')">
         dark
   </a>
   <a 
     (click)="changeTheme('green')"
-    [ngClass]="this.themeService.themeCurrent+'_btn toggle-btn'">
+    class="toggle-btn"
+    [ngClass]="theme('btn')">
         green
   </a>
   <a 
     (click)="changeTheme('ligth')" 
-    [ngClass]="this.themeService.themeCurrent+'_btn toggle-btn'">
+    class="toggle-btn"
+    [ngClass]="theme('btn')">
         ligth
   </a>
 </div>

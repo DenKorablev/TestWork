@@ -26,7 +26,8 @@
       (click)="deleteItem(item)"
     >
     </span>
-    <div fxLayout="column-reverse" class="image" [ngStyle]="{'backgroundImage': 'url('+ item.photo +')'}">
+    <div fxLayout="column">
+    <div class="image" [ngStyle]="{'backgroundImage': 'url('+ item.photo +')'}"></div>
     <div 
       [className]="this.themeService.themeCurrentClass+'_container-item-bg product-list'">
       <h3 

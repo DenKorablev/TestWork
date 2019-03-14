@@ -1,5 +1,4 @@
-import { Component, OnInit, Output, EventEmitter } from '@angular/core';
-import { trigger, state, style, animate, transition } from '@angular/animations';
+import { Component, OnInit } from '@angular/core';
 
 import { Item } from '../models/item.model';
 import { ItemService } from '../item.service';

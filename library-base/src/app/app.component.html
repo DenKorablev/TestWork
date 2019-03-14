@@ -1,5 +1,25 @@
 <!--The content below is only a placeholder and can be replaced.-->
+<div class="panel-toolbar">
+  <a 
+    (click)="changeTheme('dark')"
+    [ngClass]="this.themeService.themeCurrent+'_btn toggle-btn'">
+        dark
+  </a>
+  <a 
+    (click)="changeTheme('green')"
+    [ngClass]="this.themeService.themeCurrent+'_btn toggle-btn'">
+        green
+  </a>
+  <a 
+    (click)="changeTheme('ligth')" 
+    [ngClass]="this.themeService.themeCurrent+'_btn toggle-btn'">
+        ligth
+  </a>
+</div>
 <div style="margin: 20px">
   <p>User input field</p>
-  <lib-default-input [customPlaceholder]="'custom field'"></lib-default-input>
+  <lib-default-input 
+    [customPlaceholder]="'custom field'"
+    >
+  </lib-default-input>
 </div>

@@ -57,7 +57,6 @@
         <as-split direction="horizontal" gutterSize = "4">
             <as-split-area [visible]="spVlisble" [ngClass]="this.themeService.themeCurrentClass+'_sidebar'" [size]="25" order="1">
                 <zds-sidebar
-                    [@changeSizeSidebar]="currentState"  
                     [class.open]="this.isSidebarOpen"
                     (selectedCategory)="changeCategoryItems($event)"     
                     class="sidebar"          

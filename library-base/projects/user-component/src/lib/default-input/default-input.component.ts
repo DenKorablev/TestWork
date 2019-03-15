@@ -1,6 +1,5 @@
-import { Component, Input } from '@angular/core';
-import { StoreService } from '../mobx/store';
-import { action, computed } from 'mobx-angular';
+import { Component, Input, Output } from '@angular/core';
+import { EventEmitter } from '@angular/core';
 
 @Component({
   selector: 'lib-default-input',
@@ -10,17 +9,10 @@ import { action, computed } from 'mobx-angular';
 export class DefaultInputComponent {
 
   @Input() customPlaceholder: string;
-  @Input() customValue: string = this.storeService.customValue;
+  @Input() customValue: string;
+  @Output() baseInputValue = new EventEmitter<string>();
 
-  constructor(
-    private storeService: StoreService
-  ) { }
-  
-  @computed get changeData() {
-    return this.storeService.customValue;
-  }
-
-  @action changeText(text) {
-    this.storeService.customValue = text;
+  changeData(text: string) {
+    this.baseInputValue.emit(text);
   }
 }

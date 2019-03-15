@@ -22,6 +22,7 @@
 <div style="margin: 20px">
   <p>User input field</p>
   <lib-default-input 
+    (baseInputValue)="changeText($event)"
     [customPlaceholder]="'custom field'"
     >
   </lib-default-input>

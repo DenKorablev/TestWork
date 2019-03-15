@@ -4,7 +4,7 @@
       type="text"
       placeholder={{customPlaceholder}}
       [(ngModel)]="customValue"
-      (blur)="changeText(customValue)"
+      (blur)="changeData(customValue)"
   >
-  <a class="mat-input-clear" *ngIf="changeData" (click)="customValue = ''"></a>
+  <a class="mat-input-clear" *ngIf="customValue" (click)="customValue = ''"></a>
 </mat-form-field>

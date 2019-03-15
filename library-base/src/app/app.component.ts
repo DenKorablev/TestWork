@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { StoreService } from '../../projects/user-component/src/lib/mobx/store';
-import { action, computed } from 'mobx-angular';
+import { action } from 'mobx-angular';
 
 @Component({
   selector: 'app-root',
@@ -9,6 +9,7 @@ import { action, computed } from 'mobx-angular';
 })
 export class AppComponent {
   title = 'LibraryBase';
+  public textField: string = '';
 
   constructor(
     private storeService: StoreService
@@ -22,7 +23,7 @@ export class AppComponent {
     return this.storeService.themeCurrent + '_' + className;
   }
 
-  @computed get textField() {
-    return this.storeService.customValue;
+  changeText(text) {
+    this.textField = text;
   }
 }

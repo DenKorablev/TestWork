@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
-import { StoreService } from './mobx/store';
-import { action } from 'mobx-angular';
+import { StoreService } from '../../projects/user-component/src/lib/mobx/store';
+import { action, computed } from 'mobx-angular';
 
 @Component({
   selector: 'app-root',
@@ -20,5 +20,9 @@ export class AppComponent {
 
   @action theme(className): string {
     return this.storeService.themeCurrent + '_' + className;
+  }
+
+  @computed get textField() {
+    return this.storeService.customValue;
   }
 }

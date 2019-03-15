@@ -6,6 +6,8 @@ import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule } from '@angular/forms';
 import { MatInputModule } from '@angular/material';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { StoreService } from './mobx/store';
+import { MobxAngularModule } from 'mobx-angular';
 
 @NgModule({
   declarations: [
@@ -17,11 +19,16 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     BrowserModule,
     FormsModule,
     MatInputModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    MobxAngularModule
   ],
   exports: [
     UserComponentComponent,
-    DefaultInputComponent
+    DefaultInputComponent,
+    MobxAngularModule
+  ],
+  providers: [
+    StoreService
   ]
 })
 export class UserComponentModule { }
